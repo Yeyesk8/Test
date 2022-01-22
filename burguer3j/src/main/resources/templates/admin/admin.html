@@ -283,7 +283,7 @@
 								</path>
 							</svg>
 						</div>
-						<span th:text="${#authentication.getPrincipal().getUsername()}"></span>  |
+						<span th:text="${#authentication.getPrincipal().getUsername()}"></span> |
 						<span class="nav-link-text ms-1"> Cerrar Sesion </span>
 					</a>
 				</li>
@@ -292,100 +292,126 @@
 	</aside>
 
 
+	<main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
+		<!-- Navbar -->
+		<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+			navbar-scroll="true">
+			<div class="container-fluid py-1 px-3">
+				<div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+					<div class="ms-md-auto pe-md-3 d-flex align-items-center">
+					</div>
+					<ul class="navbar-nav  justify-content-end">
+						<li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+							<a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+								<div class="sidenav-toggler-inner">
+									<i class="sidenav-toggler-line"></i>
+									<i class="sidenav-toggler-line"></i>
+									<i class="sidenav-toggler-line"></i>
+								</div>
+							</a>
+						</li>
 
-
-
-
-	<!-- Pagina Usuarios -->
-
-	<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-		<div class="container-fluid" id="hamburguesas">
-			<div class="page-header min-height-300 border-radius-xl mt-4"
-				style="background-image: url('/img/Fondo.png'); background-position-y: 50%;">
-				<span class="mask bg-gradient-danger opacity-6"></span>
-			</div>
-
-			</p>
-			</p>
-			</p>
-
-			<div class="card">
-				<div class="table-responsive">
-					<table class="table align-items-center mb-0" id="userList">
-						<thead>
-							<tr>
-								<th
-									class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-									Id</th>
-								<th
-									class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-									Nombre</th>
-								<th
-									class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-									Apellido</th>
-								<th
-									class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-									Email</th>
-								<th
-									class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-									Usuario</th>
-								<th
-									class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-									Contraseña</th>
-								<th class="text-secondary opacity-7"></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr th:each="user: ${userList}">
-								<td class="align-middle text-center">
-									<p class="text-xs font-weight-bold mb-0" th:text="${user.id}"></p>
-								</td>
-
-								<td class="align-middle text-center">
-									<p class="text-xs font-weight-bold mb-0" th:text="${user.firstName}"></p>
-								</td>
-
-								<td class="align-middle text-center">
-									<p class="text-xs font-weight-bold mb-0" th:text="${user.lastName}"></p>
-								</td>
-
-								<td class="align-middle text-center">
-									<p class="text-xs font-weight-bold mb-0" th:text="${user.email}"></p>
-								</td>
-
-								<td class="align-middle text-center">
-									<p class="text-xs font-weight-bold mb-0" th:text="${user.username}"></p>
-								</td>
-
-								<td class="align-middle text-center">
-									<p class="text-xs font-weight-bold mb-0" th:text="${user.password}"></p>
-								</td>
-
-								<td>
-									<span
-										th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')} or (${#authorization.expression('hasRole(''ROLE_USER'')')} and ${#httpServletRequest.remoteUser==user.username})">
-										<a href="#editarusuario" th:href="@{'/editarUsuario/'+ ${user.id}}"><i
-												class="fas fa-edit"></i></a>
-									</span>
-
-									<span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
-										<a th:onclick="'javascript:confirmDelete(\''+ ${user.id} +'\');'"><i
-												class="fas fa-solid fa-trash"></i></a>
-									</span>
-
-								</td>
-							</tr>
-						</tbody>
-					</table>
+					</ul>
+					</li>
+					</ul>
 				</div>
 			</div>
+		</nav>
 
 
+
+
+
+
+		<!-- Pagina Usuarios -->
+
+		<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+			<div class="container-fluid" id="hamburguesas">
+				<div class="page-header min-height-300 border-radius-xl mt-4"
+					style="background-image: url('/img/Fondo.png'); background-position-y: 50%;">
+					<span class="mask bg-gradient-danger opacity-6"></span>
+				</div>
+
+				</p>
+				</p>
+				</p>
+
+				<div class="card">
+					<div class="table-responsive">
+						<table class="table align-items-center mb-0" id="userList">
+							<thead>
+								<tr>
+									<th
+										class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+										Id</th>
+									<th
+										class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+										Nombre</th>
+									<th
+										class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+										Apellido</th>
+									<th
+										class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+										Email</th>
+									<th
+										class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+										Usuario</th>
+									<th
+										class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+										Contraseña</th>
+									<th class="text-secondary opacity-7"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="user: ${userList}">
+									<td class="align-middle text-center">
+										<p class="text-xs font-weight-bold mb-0" th:text="${user.id}"></p>
+									</td>
+
+									<td class="align-middle text-center">
+										<p class="text-xs font-weight-bold mb-0" th:text="${user.firstName}"></p>
+									</td>
+
+									<td class="align-middle text-center">
+										<p class="text-xs font-weight-bold mb-0" th:text="${user.lastName}"></p>
+									</td>
+
+									<td class="align-middle text-center">
+										<p class="text-xs font-weight-bold mb-0" th:text="${user.email}"></p>
+									</td>
+
+									<td class="align-middle text-center">
+										<p class="text-xs font-weight-bold mb-0" th:text="${user.username}"></p>
+									</td>
+
+									<td class="align-middle text-center">
+										<p class="text-xs font-weight-bold mb-0" th:text="${user.password}"></p>
+									</td>
+
+									<td>
+										<span
+											th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')} or (${#authorization.expression('hasRole(''ROLE_USER'')')} and ${#httpServletRequest.remoteUser==user.username})">
+											<a href="#editarusuario" th:href="@{'/editarUsuario/'+ ${user.id}}"><i
+													class="fas fa-edit"></i></a>
+										</span>
+
+										<span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+											<a th:onclick="'javascript:confirmDelete(\''+ ${user.id} +'\');'"><i
+													class="fas fa-solid fa-trash"></i></a>
+										</span>
+
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+
+			</div>
 		</div>
-	</div>
 
-	<!-- Fin Pagina Usuarios -->
-
+		<!-- Fin Pagina Usuarios -->
 
 
 
@@ -414,229 +440,231 @@
 
 
 
-	<!--   Core JS Files   -->
+
+		<!--   Core JS Files   -->
 
 
-	<script src="static/js/soft-uid/core/popper.min.js" th:src="@{/js/soft-uid/core/popper.min.js}"></script>
-	<script src="static/js/soft-uid/core/bootstrap.min.js" th:src="@{/js/soft-uid/core/bootstrap.min.js}"></script>
-	<script src="static/js/soft-uid/plugins/perfect-scrollbar.min.js"
-		th:src="@{/js/soft-uid/plugins/perfect-scrollbar.min.js}"></script>
-	<script src="static/js/soft-uid/plugins/smooth-scrollbar.min.js"
-		th:src="@{/js/soft-uid/plugins/smooth-scrollbar.min.js}"></script>
-	<script src="static/js/soft-uid/plugins/chartjs.min.js" th:src="@{/js/soft-uid/plugins/chartjs.min.js}"></script>
+		<script src="static/js/soft-uid/core/popper.min.js" th:src="@{/js/soft-uid/core/popper.min.js}"></script>
+		<script src="static/js/soft-uid/core/bootstrap.min.js" th:src="@{/js/soft-uid/core/bootstrap.min.js}"></script>
+		<script src="static/js/soft-uid/plugins/perfect-scrollbar.min.js"
+			th:src="@{/js/soft-uid/plugins/perfect-scrollbar.min.js}"></script>
+		<script src="static/js/soft-uid/plugins/smooth-scrollbar.min.js"
+			th:src="@{/js/soft-uid/plugins/smooth-scrollbar.min.js}"></script>
+		<script src="static/js/soft-uid/plugins/chartjs.min.js"
+			th:src="@{/js/soft-uid/plugins/chartjs.min.js}"></script>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-	<script>
-		var ctx = document.getElementById("chart-bars").getContext("2d");
+		<script>
+			var ctx = document.getElementById("chart-bars").getContext("2d");
 
-		new Chart(ctx, {
-			type: "bar",
-			data: {
-				labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-				datasets: [{
-					label: "Sales",
-					tension: 0.4,
-					borderWidth: 0,
-					borderRadius: 4,
-					borderSkipped: false,
-					backgroundColor: "#fff",
-					data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
-					maxBarThickness: 6
-				},],
-			},
-			options: {
-				responsive: true,
-				maintainAspectRatio: false,
-				plugins: {
-					legend: {
-						display: false,
-					}
+			new Chart(ctx, {
+				type: "bar",
+				data: {
+					labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+					datasets: [{
+						label: "Sales",
+						tension: 0.4,
+						borderWidth: 0,
+						borderRadius: 4,
+						borderSkipped: false,
+						backgroundColor: "#fff",
+						data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+						maxBarThickness: 6
+					},],
 				},
-				interaction: {
-					intersect: false,
-					mode: 'index',
-				},
-				scales: {
-					y: {
-						grid: {
-							drawBorder: false,
+				options: {
+					responsive: true,
+					maintainAspectRatio: false,
+					plugins: {
+						legend: {
 							display: false,
-							drawOnChartArea: false,
-							drawTicks: false,
-						},
-						ticks: {
-							suggestedMin: 0,
-							suggestedMax: 500,
-							beginAtZero: true,
-							padding: 15,
-							font: {
-								size: 14,
-								family: "Open Sans",
-								style: 'normal',
-								lineHeight: 2
-							},
-							color: "#fff"
-						},
-					},
-					x: {
-						grid: {
-							drawBorder: false,
-							display: false,
-							drawOnChartArea: false,
-							drawTicks: false
-						},
-						ticks: {
-							display: false
-						},
-					},
-				},
-			},
-		});
-
-
-		var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-		var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-		gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
-		gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-		gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
-
-		var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-		gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
-		gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-		gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
-
-		new Chart(ctx2, {
-			type: "line",
-			data: {
-				labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-				datasets: [{
-					label: "Mobile apps",
-					tension: 0.4,
-					borderWidth: 0,
-					pointRadius: 0,
-					borderColor: "#cb0c9f",
-					borderWidth: 3,
-					backgroundColor: gradientStroke1,
-					fill: true,
-					data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-					maxBarThickness: 6
-
-				},
-				{
-					label: "Websites",
-					tension: 0.4,
-					borderWidth: 0,
-					pointRadius: 0,
-					borderColor: "#3A416F",
-					borderWidth: 3,
-					backgroundColor: gradientStroke2,
-					fill: true,
-					data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-					maxBarThickness: 6
-				},
-				],
-			},
-			options: {
-				responsive: true,
-				maintainAspectRatio: false,
-				plugins: {
-					legend: {
-						display: false,
-					}
-				},
-				interaction: {
-					intersect: false,
-					mode: 'index',
-				},
-				scales: {
-					y: {
-						grid: {
-							drawBorder: false,
-							display: true,
-							drawOnChartArea: true,
-							drawTicks: false,
-							borderDash: [5, 5]
-						},
-						ticks: {
-							display: true,
-							padding: 10,
-							color: '#b2b9bf',
-							font: {
-								size: 11,
-								family: "Open Sans",
-								style: 'normal',
-								lineHeight: 2
-							},
 						}
 					},
-					x: {
-						grid: {
-							drawBorder: false,
-							display: false,
-							drawOnChartArea: false,
-							drawTicks: false,
-							borderDash: [5, 5]
-						},
-						ticks: {
-							display: true,
-							color: '#b2b9bf',
-							padding: 20,
-							font: {
-								size: 11,
-								family: "Open Sans",
-								style: 'normal',
-								lineHeight: 2
+					interaction: {
+						intersect: false,
+						mode: 'index',
+					},
+					scales: {
+						y: {
+							grid: {
+								drawBorder: false,
+								display: false,
+								drawOnChartArea: false,
+								drawTicks: false,
 							},
-						}
+							ticks: {
+								suggestedMin: 0,
+								suggestedMax: 500,
+								beginAtZero: true,
+								padding: 15,
+								font: {
+									size: 14,
+									family: "Open Sans",
+									style: 'normal',
+									lineHeight: 2
+								},
+								color: "#fff"
+							},
+						},
+						x: {
+							grid: {
+								drawBorder: false,
+								display: false,
+								drawOnChartArea: false,
+								drawTicks: false
+							},
+							ticks: {
+								display: false
+							},
+						},
 					},
 				},
-			},
-		});
-	</script>
+			});
 
 
-	<script>
-		var win = navigator.platform.indexOf('Win') > -1;
-		if (win && document.querySelector('#sidenav-scrollbar')) {
-			var options = {
-				damping: '0.5'
+			var ctx2 = document.getElementById("chart-line").getContext("2d");
+
+			var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+			gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
+			gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+			gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
+
+			var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+			gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
+			gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+			gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
+
+			new Chart(ctx2, {
+				type: "line",
+				data: {
+					labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+					datasets: [{
+						label: "Mobile apps",
+						tension: 0.4,
+						borderWidth: 0,
+						pointRadius: 0,
+						borderColor: "#cb0c9f",
+						borderWidth: 3,
+						backgroundColor: gradientStroke1,
+						fill: true,
+						data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+						maxBarThickness: 6
+
+					},
+					{
+						label: "Websites",
+						tension: 0.4,
+						borderWidth: 0,
+						pointRadius: 0,
+						borderColor: "#3A416F",
+						borderWidth: 3,
+						backgroundColor: gradientStroke2,
+						fill: true,
+						data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+						maxBarThickness: 6
+					},
+					],
+				},
+				options: {
+					responsive: true,
+					maintainAspectRatio: false,
+					plugins: {
+						legend: {
+							display: false,
+						}
+					},
+					interaction: {
+						intersect: false,
+						mode: 'index',
+					},
+					scales: {
+						y: {
+							grid: {
+								drawBorder: false,
+								display: true,
+								drawOnChartArea: true,
+								drawTicks: false,
+								borderDash: [5, 5]
+							},
+							ticks: {
+								display: true,
+								padding: 10,
+								color: '#b2b9bf',
+								font: {
+									size: 11,
+									family: "Open Sans",
+									style: 'normal',
+									lineHeight: 2
+								},
+							}
+						},
+						x: {
+							grid: {
+								drawBorder: false,
+								display: false,
+								drawOnChartArea: false,
+								drawTicks: false,
+								borderDash: [5, 5]
+							},
+							ticks: {
+								display: true,
+								color: '#b2b9bf',
+								padding: 20,
+								font: {
+									size: 11,
+									family: "Open Sans",
+									style: 'normal',
+									lineHeight: 2
+								},
+							}
+						},
+					},
+				},
+			});
+		</script>
+
+
+		<script>
+			var win = navigator.platform.indexOf('Win') > -1;
+			if (win && document.querySelector('#sidenav-scrollbar')) {
+				var options = {
+					damping: '0.5'
+				}
+				Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
 			}
-			Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-		}
-	</script>
+		</script>
 
 
 
 
-	<!-- Github buttons -->
-	<script async defer src="https://buttons.github.io/buttons.js"></script>
-	<!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-	<script src="static/js/soft-uid/soft-ui-dashboard.min.js?v=1.0.3"
-		th:src="@{/js/soft-uid/soft-ui-dashboard.min.js?v=1.0.3}"></script>
+		<!-- Github buttons -->
+		<script async defer src="https://buttons.github.io/buttons.js"></script>
+		<!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+		<script src="static/js/soft-uid/soft-ui-dashboard.min.js?v=1.0.3"
+			th:src="@{/js/soft-uid/soft-ui-dashboard.min.js?v=1.0.3}"></script>
 
-	<div id="deleteError" th:if="${deleteError}" class="alert alert-danger text-center" role="alert">
-		<span th:text="${deleteError}"></span>
-	</div>
+		<div id="deleteError" th:if="${deleteError}" class="alert alert-danger text-center" role="alert">
+			<span th:text="${deleteError}"></span>
+		</div>
 
-	<!-- script eliminar y confirmar eliminar usuarios -->
-	<script type="text/javascript">
-		function confirmDelete(id) {
-			$('#deleteModal').modal('show');
-			$("#userIdHiddenInput").val(id);
-		}
+		<!-- script eliminar y confirmar eliminar usuarios -->
+		<script type="text/javascript">
+			function confirmDelete(id) {
+				$('#deleteModal').modal('show');
+				$("#userIdHiddenInput").val(id);
+			}
 
-		function borrarUsuario() {
-			var id = $("#userIdHiddenInput").val();
-			window.location = "/borrarUsuario/" + id;
-		}
-	</script>
+			function borrarUsuario() {
+				var id = $("#userIdHiddenInput").val();
+				window.location = "/borrarUsuario/" + id;
+			}
+		</script>
 
-	<div th:include="confirmar-eliminar" th:remove="tag"></div>
+		<div th:include="confirmar-eliminar" th:remove="tag"></div>
 
 </body>
 
