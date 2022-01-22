@@ -1,0 +1,235 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Modal Añadir un Sandwich -->
+
+<div class="col-md-4" id="registrarsandwich">
+	<div class="modal fade" id="aniadirSandwichModal" tabindex="-1" role="dialog" aria-labelledby="aniadirSandwichModal"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-body p-0">
+					<div class="card card-plain">
+						<div class="card-header pb-0 text-center">
+							<h3 class="font-weight-bolder text-info text-danger">Añadir Sandwich</h3>
+							<p class="mb-0">Introduce los datos para añadir un nuevo Sandwich</p>
+						</div>
+						<lass="card-body">
+							<form role="form text-left" th:action="@{/nuevoSandwich}" th:object="${nuevoSandwich}"
+								method="post">
+
+								<input class="form-control" type=hidden th:field="${nuevoSandwich.id}">
+
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label">Nombre</label>
+											<div class="form-group col-md-8">
+												<input type="text" class="form-control" required="required"
+													th:field="${nuevoSandwich.name}">
+												<div class="alert-danger" th:if="${#fields.hasErrors('name')}"
+													th:errors="${name}">Name
+													Error</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label">Gluten</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevoSandwich.gluten}">
+													<option th:value="${nuevoSandwich.gluten='Con Gluten'}">Con Gluten
+													</option>
+													<option th:value="${nuevoSandwich.gluten='Sin Gluten'}">Sin Gluten
+													</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('gluten')}"
+													th:errors="${tipo_carne}">Name Error</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label">Bacon</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevoSandwich.bacon}">
+													<option th:value="${nuevoSandwich.bacon='Con Bacon'}">Con Bacon
+													</option>
+													<option th:value="${nuevoSandwich.bacon='Sin Bacon'}">Sin Bacon
+													</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('bacon')}"
+													th:errors="${tipo_queso}">Name Error</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label">Lechuga</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevoSandwich.lechuga}">
+													<option th:value="${nuevoSandwich.lechuga='Con Lechuga'}">Con
+														Lechuga
+													</option>
+													<option th:value="${nuevoSandwich.lechuga='Sin Lechuga'}">Sin
+														Lechuga
+													</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('lechuga')}"
+													th:errors="${tipo_queso}">Name Error</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label">Tomate</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevoSandwich.tomate}">
+													<option th:value="${nuevoSandwich.tomate='Con Tomate'}">Con Tomate
+													</option>
+													<option th:value="${nuevoSandwich.tomate='Sin Tomate'}">Sin Tomate
+													</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('tomate')}"
+													th:errors="${tipo_queso}">Name Error</div>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-8 col-form-label form-control-label">Esparragos</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevoSandwich.esparragos}">
+													<option th:value="${nuevoSandwich.esparragos='Con Esparragos'}">Con
+														Esparragos</option>
+													<option th:value="${nuevoSandwich.esparragos='Sin Esparragos'}">Sin
+														Esparragos</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('esparragos')}"
+													th:errors="${tipo_carne}">Name Error</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-8 col-form-label form-control-label">Tipo de
+												Huevo</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevoSandwich.tipo_huevo}">
+													<option th:value="${nuevoSandwich.tipo_huevo='Huevo Frito'}">Huevo
+														Frito</option>
+													<option th:value="${nuevoSandwich.tipo_huevo='Huevo a la Plancha'}">
+														Huevo a la Plancha</option>
+													<option th:value="${nuevoSandwich.tipo_huevo='Sin huevo'}">Sin huevo
+													</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('tipo_huevo')}"
+													th:errors="${tipo_queso}">Name Error</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-8 col-form-label form-control-label">Tipo de
+												Queso</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevoSandwich.tipo_queso}">
+													<option th:value="${nuevoSandwich.tipo_queso='Cheddar'}">Cheddar
+													</option>
+													<option th:value="${nuevoSandwich.tipo_queso='Gouda'}">Gouda
+													</option>
+													<option th:value="${nuevoSandwich.tipo_queso='Sin Queso'}">Sin Queso
+													</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('tipo_queso')}"
+													th:errors="${tipo_queso}">Name Error</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label">York</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevoSandwich.york}">
+													<option th:value="${nuevoSandwich.york='Con York'}">Con York
+													</option>
+													<option th:value="${nuevoSandwich.york='Sin York'}">Sin York
+													</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('york')}"
+													th:errors="${tipo_queso}">Name Error</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label">Mahonesa</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevoSandwich.mahonesa}">
+													<option th:value="${nuevoSandwich.mahonesa='Con Mahonesa'}"> Con
+														Mahonesa</option>													
+													<option th:value="${nuevoSandwich.mahonesa='Sin Mahonesa'}"> Sin
+														Mahonesa</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('mahonesa')}"
+													th:errors="${tipo_queso}">Name Error</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+				</p>
+				</p>
+
+				<div class="text-center">
+					<input type="submit" class="btn bg-gradient-warning btn-sm btn-rounded w-40" style="float: center;"
+						value="Añadir">
+					<a class="btn btn-btn bg-gradient-danger btn-sm btn-rounded w-40" type="button"
+						th:href="@{'/nuevoSandwich/cancelar'}">Cancelar</a>
+
+				</div>
+
+				<div class="alert alert-danger text-center" th:if="${formErrorMessage}" th:text="${formErrorMessage}">
+					Error Message</div>
+
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Fin Modal Añadir un Sandwich -->
+
+
+</html>

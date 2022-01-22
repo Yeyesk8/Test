@@ -1,0 +1,1301 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="apple-touch-icon" sizes="76x76" href="static/img/apple-icon.png">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+	<title>
+		Bienvenido a 3J
+	</title>
+	<!--     Fonts and icons     -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<!-- Nucleo Icons -->
+	<link href="static/css/soft-ui/nucleo-icons.css" th:href="@{/css/soft-ui/nucleo-icons.css}" rel="stylesheet" />
+	<link href="static/css/soft-ui/nucleo-svg.css" th:href="@{/css/soft-ui/nucleo-svg.css}" rel="stylesheet" />
+	<!-- Font Awesome Icons -->
+	<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+	<!-- CSS Files -->
+	<link id="pagestyle" href="static/css/soft-ui/soft-design-system.css?v=1.0.5"
+		th:href="@{/css/soft-ui/soft-design-system.css?v=1.0.5}" rel="stylesheet" />
+</head>
+
+
+<body>
+	<div class="container position-sticky z-index-sticky top-0">
+		<divclass="row">
+			<div class="col-12">
+				<nav
+					class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+					<div class="container-fluid">
+						<a class="navbar-brand font-weight-bolder ms-sm-3">
+							Restaurante Tres Jotas
+						</a>
+						<button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
+							data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+							aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon mt-2">
+								<span class="navbar-toggler-bar bar1"></span>
+								<span class="navbar-toggler-bar bar2"></span>
+								<span class="navbar-toggler-bar bar3"></span>
+							</span>
+						</button>
+						<div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
+
+							<ul class="navbar-nav navbar-nav-hover ms-lg-12 ps-lg-5 w-100">
+
+								<li class="nav-item mx-2">
+									<a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
+										href="#inicio">
+										Inicio
+									</a>
+								</li>
+
+								<li class="nav-item dropdown dropdown-hover mx-2">
+									<a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
+										id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+										<div
+											class="icon icon-shape icon-xs border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
+											<svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
+												xmlns="http://www.w3.org/2000/svg"
+												xmlns:xlink="http://www.w3.org/1999/xlink">
+												<span class="material-icons md-8"> restaurant_menu </span>
+												<g id="Basic-Elements" stroke="none" stroke-width="1" fill="none"
+													fill-rule="evenodd">
+													<g id="Rounded-Icons"
+														transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF"
+														fill-rule="nonzero">
+														<g id="Icons-with-opacity"
+															transform="translate(1716.000000, 291.000000)">
+															<g id="shop-" transform="translate(0.000000, 148.000000)">
+																<path
+																	d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z"
+																	id="Path" opacity="0.598981585"></path>
+																<path
+																	d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z"
+																	id="Path"></path>
+															</g>
+														</g>
+													</g>
+												</g>
+											</svg>
+										</div>
+										Carta
+										<img src="static/img/down-arrow-dark.svg" th:src="@{/img/down-arrow-dark.svg}"
+											alt="down-arrow" class="arrow ms-1">
+									</a>
+									<div class="dropdown-menu dropdown-menu-animation dropdown-md p-3 border-radius-lg mt-0 mt-lg-3"
+										aria-labelledby="dropdownMenuPages">
+										<div class="d-none d-lg-block">
+											<h6
+												class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center px-0">
+												<div class="d-inline-block" />
+												<a href="#hamburguesas"> Hamburguesas </a>
+											</h6>
+
+											<h6
+												class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center px-0 mt-3">
+												<div class="d-inline-block" />
+												<a href="#sandwiches"> Sandwiches </a>
+											</h6>
+
+											<h6
+												class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center px-0 mt-3">
+												<div class="d-inline-block" />
+												<a href="#baguettes"> Baguettes </a>
+											</h6>
+
+											<h6
+												class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center px-0 mt-3">
+												<div class="d-inline-block" />
+												<a href="#patatas">Patatas</a>
+											</h6>
+											<h6
+												class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center px-0 mt-3">
+												<div class="d-inline-block" />
+												<a href="#bebidas">Bebidas</a>
+											</h6>
+
+
+										</div>
+								</li>
+
+								<li class="nav-item mx-2">
+									<a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
+										href="#contacto">
+										<div
+											class="icon icon-shape icon-xs border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
+											<svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
+												xmlns="http://www.w3.org/2000/svg"
+												xmlns:xlink="http://www.w3.org/1999/xlink">
+												<span class="material-icons md-8">
+													mail
+												</span>
+												<g id="Basic-Elements" stroke="none" stroke-width="1" fill="none"
+													fill-rule="evenodd">
+													<g id="Rounded-Icons"
+														transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF"
+														fill-rule="nonzero">
+														<g id="Icons-with-opacity"
+															transform="translate(1716.000000, 291.000000)">
+															<g id="mail" transform="translate(0.000000, 148.000000)">
+																<path
+																	d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z"
+																	id="Path" opacity="0.598981585"></path>
+																<path
+																	d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z"
+																	id="Path"></path>
+															</g>
+														</g>
+													</g>
+												</g>
+											</svg>
+										</div>
+										Contacto
+									</a>
+
+								</li>
+								<li class="nav-item ms-lg-auto">
+									<a class="nav-link me-2" href="#sesion">
+										<i class="fa fa-power-off"></i>
+										<p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="modal"
+											data-bs-target="#modal-form" data-bs-placement="bottom"
+											title="Iniciar Sesion">Iniciar Sesion</p>
+
+									</a>
+								</li>
+
+								<li class="nav-item my-auto ms-3 ms-lg-0">
+									<a class="nav-link me-2" href="#registrar">
+										<p class="btn btn-sm  bg-gradient-warning  btn-round mb-0 me-1 mt-2 mt-md-0"
+											data-bs-toggle="modal" data-bs-target="#modal-reg"
+											data-bs-placement="bottom" title="Registrarse">Registrarse</p>
+									</a>
+								</li>								
+
+							</ul>
+						</div>
+					</div>
+				</nav>
+				<!-- End Navbar -->
+			</div>
+	</div>
+
+	<header class="header-2" id="inicio">
+		<div class="page-header min-vh-75" style="background-image: url('/img/Fondo.jpg')">
+			<div class="container">
+				<div class="row">
+				</div>
+			</div>
+			<div class="position-absolute w-100 z-index-1 bottom-0">
+				<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+					viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+					<defs>
+						<path id="gentle-wave"
+							d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+					</defs>
+					<g class="moving-waves">
+						<use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
+						<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
+						<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
+						<use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
+						<use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
+						<use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
+					</g>
+				</svg>
+			</div>
+		</div>
+	</header>
+
+
+
+
+	<!-- Modal Inicio Sesion -->
+
+	<div class="col-md-4" id="sesion">
+		<div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+				<div class="modal-content">
+					<div class="modal-body p-0">
+						<div class="card card-plain">
+							<div class="card-header pb-0 text-center">
+								<h3 class="font-weight-bolder text-danger text-gradient">
+									Bienvenido</h3>
+								<p class="mb-0">Introduce tu usuario y contraseña para
+									acceder
+								</p>
+							</div>
+							<div class="card-body">
+								<form th:action="@{/login}" method="post" role="form text-left">
+									<label class="col-lg-4 col-form-label form-control-label">Usuario</label>
+									<div class="input-group mb-3">
+										<input type="text" class="form-control" placeholder="usuario"
+											aria-label="usuario" aria-describedby="usuario-addon" name="username">
+									</div>
+									<label class="col-lg-5 col-form-label form-control-label">Contraseña</label>
+									<div class="input-group mb-3">
+										<input type="password" class="form-control" placeholder="contraseña"
+											aria-label="Password" aria-describedby="contraseña-addon" name="password">
+									</div>
+
+									<div class="text-center">
+										<button type="submit"
+											class="btn btn-round bg-gradient-warning btn-lg w-100 mt-4 mb-0">Iniciar
+											Sesion
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--  Fin Modal Inicio Sesion -->
+
+
+	<!-- Modal Registro -->
+
+	<div class="col-md-4" id="registrar">
+
+		<div class="modal fade" id="modal-reg" tabindex="-1" role="dialog" aria-labelledby="modal-reg"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-md" role="document">
+				<div class="modal-content">
+					<div class="modal-body p-0">
+						<div class="card card-plain">
+							<div class="card-header pb-0 text-center">
+								<h3 class="font-weight-bolder text-danger text-gradient">
+									Registrese Ahora</h3>
+								<p class="mb-0">Ingrese sus datos para Registrarse</p>
+							</div>
+							<div class="card-body">
+								<form role="form" th:object="${registro}" th:action="@{/registro}" method="post">
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="col-lg-4 col-form-label form-control-label">Nombre</label>
+												<div class="input-group mb-3">
+													<input class="form-control" type="text"
+														th:field="${registro.firstName}"
+														placeholder="Introduce tu Nombre">
+													<div class="alert-danger" th:if="${#fields.hasErrors('firstName')}"
+														th:errors="*{firstName}">Name Error</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label
+													class="col-lg-4 col-form-label form-control-label">Apellido</label>
+												<div class="input-group mb-3">
+													<input class="form-control" type="text"
+														th:field="${registro.lastName}"
+														placeholder="Introduce tu Apellido">
+													<div class="alert-danger" th:if="${#fields.hasErrors('lastName')}"
+														th:errors="*{lastName}">Name Error</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="col-lg-4 col-form-label form-control-label">Email</label>
+												<div class="input-group mb-3">
+													<input class="form-control" type="text" th:field="${registro.email}"
+														placeholder="Introduce tu Email">
+													<div class="alert-danger" th:if="${#fields.hasErrors('email')}"
+														th:errors="*{email}">Name Error</div>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label
+													class="col-lg-4 col-form-label form-control-label">Usuario</label>
+												<div class="input-group mb-3">
+													<input class="form-control" type="text"
+														th:field="${registro.username}"
+														placeholder="Introduce tu Usuario">
+													<div class="alert-danger" th:if="${#fields.hasErrors('username')}"
+														th:errors="*{username}">Name Error</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label
+													class="col-lg-6 col-form-label form-control-label">Contraseña</label>
+												<div class="input-group mb-3">
+													<input class="form-control" type="password"
+														th:field="${registro.password}"
+														placeholder="Introduce una Contraseña">
+													<div class="alert-danger" th:if="${#fields.hasErrors('password')}"
+														th:errors="*{password}">Name Error</div>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="col-lg-13 col-form-label form-control-label">Confirmar
+													Contraseña</label>
+												<div class="input-group mb-3">
+													<input class="form-control" type="password"
+														th:field="${registro.confirmPassword}"
+														placeholder="Confirma la contraseña">
+													<div class="alert-danger"
+														th:if="${#fields.hasErrors('confirmPassword')}"
+														th:errors="*{confirmPassword}">Name Error</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									</p>
+									</p>
+
+									<div class="text-center">
+										<button type="submit" class="btn bg-gradient-warning btn-sm btn-rounded w-60">
+											Registrarse </button>
+										<a th:href="@{'/registro/cancelar'}" class="btn btn-btn bg-gradient-danger btn-sm btn-rounded w-60" type="button">Cancelar</a>
+
+									</div>
+
+									<div class="alert alert-danger text-center" th:if="${formErrorMessage}"
+										th:text="${formErrorMessage}">Error Message
+									</div>
+
+									<div class="form-group row" style="visibility:hidden">
+										<label th:text="Roles"
+											class="col-lg-3 col-form-label form-control-label"></label>
+										<div class="col-lg-9">
+											<select class="form-control" size="1" th:field="${registro.roles}">
+												<option th:each="role:${roles}" th:value="${role.id='2'}"
+													th:text="${role.name='USER'}">
+												</option>
+											</select>
+											<div class="alert-danger" th:if="${#fields.hasErrors('roles')}"
+												th:errors="*{roles}">Name Error</div>
+										</div>
+									</div>
+							</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+	<!--  Fin Modal Registro -->
+
+
+
+
+	</p>
+	</p>
+
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col-md-auto" id="hamburguesas">
+				Hamburguesas
+			</div>
+		</div>
+
+		</p>
+		</p>
+		</p>
+		</p>
+
+
+		<div class="col-md-auto">
+			<div class="card-group">
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/hamburguesas/completa.jpg" th:src="@{/img/hamburguesas/completa.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Hamburguesa</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							La Completa
+						</a>
+						<p class="card-description mb-4">
+							Hamburguesa Con Carne de Vacuno o Pollo, Huevo de Gallina Campera, Queso Cheddar,
+							York,
+							Bacon, Lechuga, Cebolla y Tomate de la huerta.
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">5,30</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/hamburguesas/queso-york-bacon.jpg"
+								th:src="@{/img/hamburguesas/queso-york-bacon.jpg}" class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Hamburguesa</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							Queso,York y Bacon
+						</a>
+						<p class="card-description mb-4">
+							Hamburguesa Con Carne de Vacuno o Pollo, Queso Cheddar, York, Bacon, Lechuga,
+							Cebolla y
+							Tomate de la huerta.
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">4,90</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/hamburguesas/normal.jpg" th:src="@{/img/hamburguesas/normal.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Hamburguesa</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							Esa, Esa, Esa
+						</a>
+						<p class="card-description mb-4">
+							Hamburguesa Con Carne de Vacuno o Pollo, Lechuga, Cebolla y Tomate de la huerta.
+							La Hamburguesa Normal de toda la vida.
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">4,40</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/hamburguesas/queso.jpg" th:src="@{/img/hamburguesas/queso.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Hamburguesa</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							Con Queso
+						</a>
+						<p class="card-description mb-4">
+							Hamburguesa Con Carne de Vacuno o Pollo, Queso Cheddar y Lechuga, Cebolla y Tomate
+							de la
+							huerta.
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">4,70</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	</p>
+	</p>
+
+
+	<div class="container">
+		<div class="row justify-content-md-center">
+
+			<div class="col-md-auto" id="sandwiches">
+				Sandwiches
+			</div>
+		</div>
+
+		</p>
+		</p>
+		</p>
+		</p>
+
+		<div class="col-md-auto">
+			<div class="card-group">
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/sandwiches/completo.jpg" th:src="@{/img/sandwiches/completo.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Sandwich</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							El Completo
+						</a>
+						<p class="card-description mb-4">
+							Sandwich doble piso Con Huevo de Gallina Campera, Queso Cheddar, York, Esparragos,
+							Lechuga y Tomate de la huerta, todo ello acompañado de salsa mahonesa.
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">5,20</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/sandwiches/vegetal.jpg" th:src="@{/img/sandwiches/vegetal.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Sandwich</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							El Vegetal
+						</a>
+						<p class="card-description mb-4">
+							Para los amantes del Vegetal Sandwich Con deliciosos esparragos, Lechuga, Cebolla y
+							Tomate de la huerta acompañado de salsa mahonesa .
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">3,80</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/sandwiches/mixto.jpg" th:src="@{/img/sandwiches/mixto.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Sandwich</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							Mixto
+						</a>
+						<p class="card-description mb-4">
+							El Sandwich de Siempre. Queso Cheddar fundido y york.
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">2,80</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/sandwiches/mixtobh.jpg" th:src="@{/img/sandwiches/mixtobh.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Sandwich</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							Mixto Bacon Y Huevo
+						</a>
+						<p class="card-description mb-4">
+							Si al Sandwich de Siempre le añades Bacon y Huevo se convierte en Excelente.Queso
+							Cheddar fundido y york acompañado de Bacon y huevo de Gallina Campera.
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">4,90</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	</p>
+	</p>
+
+
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col-md-auto" id="baguettes">
+				Baguettes
+			</div>
+		</div>
+
+		</p>
+		</p>
+		</p>
+		</p>
+
+		<div class="col-md-auto">
+			<div class="card-group">
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/baguettes/bacon-queso.jpg" th:src="@{/img/baguettes/bacon-queso.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Baguette</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							Bacon Queso
+						</a>
+						<p class="card-description mb-4">
+							Delicioso Bocadillo de Bacon y Queso Cheddar en pan de Baguette recien hecha
+							al horno.
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">4,70</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/baguettes/lomo-tomate.jpg" th:src="@{/img/baguettes/lomo-tomate.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Baguette</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							Lomo con Tomate
+						</a>
+						<p class="card-description mb-4">
+							Delicioso Bocadillo de Lomo adobado y Tomate de la huerta en pan de Baguette
+							recien hecha al horno.
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">4,80</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				</p>
+				</p>
+				</p>
+
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/baguettes/chorizo.jpg" th:src="@{/img/baguettes/chorizo.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Baguette</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							Chorizo
+						</a>
+						<p class="card-description mb-4">
+							Para los amantes del mundo Rural,Delicioso Bocadillo de Chorizo casero a la
+							plancha en pan de Baguette recien hecha al horno.
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">4,20</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/baguettes/salmon-tomate.jpg"
+								th:src="@{/img/baguettes/salmon-tomate.jpg}" class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Baguette</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							Salmon con Tomate
+						</a>
+						<p class="card-description mb-4">
+							Delicioso Bocadillo de Salmon Ahumado con Tomate de la huerta en pan de
+							Baguette recien hecha al horno.
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">5,20</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</p>
+	</p>
+
+
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col-md-auto" id="patatas">
+				Patatas Fritas
+			</div>
+		</div>
+
+		</p>
+		</p>
+		</p>
+		</p>
+
+		<div class="col-md-auto">
+			<div class="card-group">
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/patatas/pequeñas.jpg" th:src="@{/img/patatas/pequeñas.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Patatas</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							Pequeñas
+						</a>
+						<p class="card-description mb-4">
+							Las famosas patatas fritas de las que tanto has oído hablar, si
+							estás son, las mejores, las más crujientes, las que tienen más
+							sabor, si las pruebas entenderás el por qué de su fama.
+						</p>
+						Tamaño Del Plato: Pequeño
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">2,20</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/patatas/grandes.jpg" th:src="@{/img/patatas/grandes.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Patatas</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							Grandes
+						</a>
+						<p class="card-description mb-4">
+							Las famosas patatas fritas de las que tanto has oído hablar, si
+							estás son, las mejores, las más crujientes, las que tienen más
+							sabor, si las pruebas entenderás el por qué de su fama.
+						</p>
+						Tamaño Del Plato: Grande
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">3,20</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</p>
+	</p>
+
+	<div class="container">
+		<div class="row justify-content-md-center">
+
+			<div class="col-md-auto" id="bebidas">
+				Bebidas
+			</div>
+		</div>
+
+		</p>
+		</p>
+		</p>
+		</p>
+
+
+		<div class="col-md-auto">
+			<div class="card-group">
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/bebidas/refrescos.jpg" th:src="@{/img/bebidas/refrescos.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Bebida</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							Refrescos
+						</a>
+						<p class="card-description mb-4">
+							Coca-Cola, Fanta de Naranja o Limón, Aquarius de Naranja o
+							Limón, Nestea, Zumos.
+							Para Acompañar junto a tu Hamburguesa preferida.
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">1,80</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/bebidas/Jarra.jpg" th:src="@{/img/bebidas/Jarra.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Bebida</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							Jarra de Cerveza
+						</a>
+						<p class="card-description mb-4">
+							Para los mas Cerveceros
+							Jarra Fria de Cerveza de 0,5L.
+							Ideal para acompañar junto a tu Hamburguesa preferida.
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">2,40</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/bebidas/Copa.jpg" th:src="@{/img/bebidas/Copa.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Bebida</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							Copa de Cerveza
+						</a>
+						<p class="card-description mb-4">
+							Para los mas Cerveceros
+							Copa Fria de Cerveza de 0,5L.
+							Ideal para acompañar junto a tu Hamburguesa preferida.
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">2,30</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+						<a href="javascript:;" class="d-block">
+							<img src="static/img/bebidas/vino.jpg" th:src="@{/img/bebidas/vino.jpg}"
+								class="img-fluid border-radius-lg">
+						</a>
+					</div>
+
+					<div class="card-body pt-2">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Bebida</span>
+						<a href="javascript:;" class="card-title h5 d-block text-darker">
+							Copa de Vino
+						</a>
+						<p class="card-description mb-4">
+							Para los amantes del Vino
+							Cune, Protos, Verdejo, Elegido, Marques de Riscal.
+							Ideal para acompañar junto a tu Hamburguesa preferida.
+						</p>
+						<div class="author align-items-center">
+							<div class="name ps-3">
+								<span>
+									<font size="4">2,00</font>
+								</span>
+								<i class="fas fa-euro-sign"></i>
+								<div class="stats">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<footer id="contacto">
+			<div class="page-header min-vh-85">
+				<div>
+					<img class="position-absolute fixed-top ms-auto w-100 h-100 z-index-0 d-none d-sm-none d-md-block border-radius-section border-top-end-radius-0 border-top-start-radius-0 border-bottom-end-radius-0"
+						src="/static/img/Fondo2.jpg" th:src="@{/img/Bar-fuera.jpg}" alt="image">
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-7 d-flex justify-content-center flex-column">
+							<div
+								class="card d-flex blur justify-content-center p-4 shadow-lg my-sm-0 my-sm-6 mt-8 mb-5">
+								<div class="text-center">
+									<h3 class="text-gradient text-danger">Contacta
+										con
+										Nosotros</h3>
+									<p class="mb-0">
+										Si Tienes algun Problema o Sugerencia
+										,envíe un correo electrónico a
+										Restaurante3J@gmail.com
+										o contacta mediante nuestro formulario de
+										contacto.
+									</p>
+								</div>
+
+								<form role="form" th:object="${nuevaSugerencia}" th:action="@{/nuevaSugerencia}" method="post">
+
+									<div class="card-body pb-2">
+										<div class="row">
+											<div class="col-md-6">
+												<label class="col-lg-7 col-form-label form-control-label">Nombre y
+													Apellido</label>
+												<div class="input-group">
+													<input class="form-control" type="text"
+														th:field="${nuevaSugerencia.fullname}"
+														placeholder="Introduce tu Nombre y Apellido">
+													<div class="alert-danger" th:if="${#fields.hasErrors('fullname')}"
+														th:errors="*{fullname}">Name Error</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<label class="col-lg-4 col-form-label form-control-label">Email</label >
+												<div class="input-group">
+													<input class="form-control" type="email"
+														th:field="${nuevaSugerencia.email}"
+														placeholder="Introduce tu E-mail">
+													<div class="alert-danger" th:if="${#fields.hasErrors('email')}"
+														th:errors="*{email}">Name Error</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group mb-0 mt-md-0 mt-4">
+											<label class="col-lg-4 col-form-label form-control-label">Como podemos ayudarte?</label >
+											<div class="input-group">
+												<textarea type="text" class="form-control"
+													th:field="${nuevaSugerencia.mensaje}"></textarea>
+												<div class="alert-danger" th:if="${#fields.hasErrors('email')}"
+													th:errors="*{email}">Name Error</div>
+											</div>
+
+										</div>
+										
+										</p>
+										</p>
+										
+										<div class="text-center">
+										<button type="submit" class="btn bg-gradient-warning btn-sm btn-rounded w-40">
+											Enviar </button>										
+									</div>
+
+									<div class="alert alert-danger text-center" th:if="${formErrorMessage}"
+										th:text="${formErrorMessage}">Error Message</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- JS Plugins Diseño -->
+
+	<script src="static/js/soft-ui/core/popper.min.js" th:src="@{/js/soft-ui/core/popper.min.js}"
+		type="text/javascript"></script>
+	<script src="static/js/soft-ui/core/bootstrap.min.js" th:src="@{/js/soft-ui/core/bootstrap.min.js}"
+		type="text/javascript"></script>
+	<script src="static/js/soft-ui/plugins/perfect-scrollbar.min.js"
+		th:src="@{/js/soft-ui/plugins/perfect-scrollbar.min.js}"></script>
+
+	<!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
+	<script src="static/js/soft-ui/plugins/countup.min.js" th:src="@{/js/soft-ui/plugins/countup.min.js}"></script>
+	<script src="static/js/soft-ui/plugins/choices.min.js" th:src="@{/js/soft-ui/plugins/choices.min.js}"></script>
+	<script src="static/js/soft-ui/plugins/prism.min.js" th:src="@{/js/soft-ui/plugins/prism.min.js}"></script>
+	<script src="static/js/soft-ui/plugins/highlight.min.js" th:src="@{/js/soft-ui/plugins/highlight.min.js}"></script>
+
+	<!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
+	<script src="static/js/soft-ui/plugins/rellax.min.js" th:src="@{/js/soft-ui/plugins/rellax.min.js}"></script>
+
+	<!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/soft-ui/ -->
+	<script src="static/js/soft-ui/plugins/tilt.min.js" th:src="@{/js/soft-ui/plugins/tilt.min.js}"></script>
+
+	<!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
+	<script src="static/js/soft-ui/plugins/choices.min.js" th:src="@{/js/soft-ui/plugins/choices.min.js}"></script>
+
+	<!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
+	<script src="static/js/soft-ui/plugins/parallax.min.js" th:src="@{/js/soft-ui/plugins/parallax.min.js}"></script>
+	<!-- Control Center for Soft UI Kit: parallax effects, scripts for the example pages etc -->
+
+	<!--  Google Maps Plugin    -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+	<script src="static/js/soft-ui/soft-design-system.min.js?v=1.0.5" type="text/javascript"
+		th:src="@{/js/soft-ui/soft-design-system.min.js?v=1.0.5}"></script>
+
+	<script type="text/javascript">
+		if (document.getElementById('state1')) {
+			const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+			if (!countUp.error) {
+				countUp.start();
+			} else {
+				console.error(countUp.error);
+			}
+		}
+		if (document.getElementById('state2')) {
+			const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+			if (!countUp1.error) {
+				countUp1.start();
+			} else {
+				console.error(countUp1.error);
+			}
+		}
+		if (document.getElementById('state3')) {
+			const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+			if (!countUp2.error) {
+				countUp2.start();
+			} else {
+				console.error(countUp2.error);
+			};
+		}
+	</script>
+
+
+
+</body>
+
+</html>
