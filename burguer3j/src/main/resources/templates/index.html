@@ -211,10 +211,8 @@
 								</li>
 
 								<li class="nav-item my-auto ms-3 ms-lg-0">
-									<a class="nav-link me-2" href="#registrar">
-										<p class="btn btn-sm  bg-gradient-warning  btn-round mb-0 me-1 mt-2 mt-md-0"
-											data-bs-toggle="modal" data-bs-target="#modal-reg"
-											data-bs-placement="bottom" title="Registrarse">Registrarse</p>
+									<a class="nav-link me-2" href="registro">
+										<p class="btn btn-sm  bg-gradient-warning  btn-round mb-0 me-1 mt-2 mt-md-0">Registrarse</p>
 									</a>
 								</li>								
 
@@ -301,164 +299,6 @@
 
 	<!--  Fin Modal Inicio Sesion -->
 
-
-	<!-- Modal Registro -->
-
-	<div class="col-md-4" id="registrar">
-
-		<div class="modal fade" id="modal-reg" tabindex="-1" role="dialog" aria-labelledby="modal-reg"
-			aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered modal-md" role="document">
-				<div class="modal-content">
-					<div class="modal-body p-0">
-						<div class="card card-plain">
-							<div class="card-header pb-0 text-center">
-								<h3 class="font-weight-bolder text-danger text-gradient">
-									Registrese Ahora</h3>
-								<p class="mb-0">Ingrese sus datos para Registrarse</p>
-							</div>
-							<div class="card-body">
-								<form role="form" th:object="${registro}" th:action="@{/registro}" method="post">
-
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="col-lg-4 col-form-label form-control-label">Nombre</label>
-												<div class="input-group mb-3">
-													<input class="form-control" type="text"
-														th:field="${registro.firstName}"
-														placeholder="Introduce tu Nombre">
-													<div class="alert-danger" th:if="${#fields.hasErrors('firstName')}"
-														th:errors="*{firstName}">Name Error</div>
-												</div>
-											</div>
-										</div>
-
-										<div class="col-md-6">
-											<div class="form-group">
-												<label
-													class="col-lg-4 col-form-label form-control-label">Apellido</label>
-												<div class="input-group mb-3">
-													<input class="form-control" type="text"
-														th:field="${registro.lastName}"
-														placeholder="Introduce tu Apellido">
-													<div class="alert-danger" th:if="${#fields.hasErrors('lastName')}"
-														th:errors="*{lastName}">Name Error</div>
-												</div>
-											</div>
-										</div>
-
-									</div>
-
-
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="col-lg-4 col-form-label form-control-label">Email</label>
-												<div class="input-group mb-3">
-													<input class="form-control" type="text" th:field="${registro.email}"
-														placeholder="Introduce tu Email">
-													<div class="alert-danger" th:if="${#fields.hasErrors('email')}"
-														th:errors="*{email}">Name Error</div>
-												</div>
-											</div>
-										</div>
-
-
-										<div class="col-md-6">
-											<div class="form-group">
-												<label
-													class="col-lg-4 col-form-label form-control-label">Usuario</label>
-												<div class="input-group mb-3">
-													<input class="form-control" type="text"
-														th:field="${registro.username}"
-														placeholder="Introduce tu Usuario">
-													<div class="alert-danger" th:if="${#fields.hasErrors('username')}"
-														th:errors="*{username}">Name Error</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label
-													class="col-lg-6 col-form-label form-control-label">Contraseña</label>
-												<div class="input-group mb-3">
-													<input class="form-control" type="password"
-														th:field="${registro.password}"
-														placeholder="Introduce una Contraseña">
-													<div class="alert-danger" th:if="${#fields.hasErrors('password')}"
-														th:errors="*{password}">Name Error</div>
-												</div>
-											</div>
-										</div>
-
-
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="col-lg-13 col-form-label form-control-label">Confirmar
-													Contraseña</label>
-												<div class="input-group mb-3">
-													<input class="form-control" type="password"
-														th:field="${registro.confirmPassword}"
-														placeholder="Confirma la contraseña">
-													<div class="alert-danger"
-														th:if="${#fields.hasErrors('confirmPassword')}"
-														th:errors="*{confirmPassword}">Name Error</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									</p>
-									</p>
-
-									<div class="text-center">
-										<button type="submit" class="btn bg-gradient-warning btn-sm btn-rounded w-60">
-											Registrarse </button>
-										<a th:href="@{'/registro/cancelar'}" class="btn btn-btn bg-gradient-danger btn-sm btn-rounded w-60" type="button">Cancelar</a>
-
-									</div>
-
-									<div class="alert alert-danger text-center" th:if="${formErrorMessage}"
-										th:text="${formErrorMessage}">Error Message
-									</div>
-
-									<div class="form-group row" style="visibility:hidden">
-										<label th:text="Roles"
-											class="col-lg-3 col-form-label form-control-label"></label>
-										<div class="col-lg-9">
-											<select class="form-control" size="1" th:field="${registro.roles}">
-												<option th:each="role:${roles}" th:value="${role.id='2'}"
-													th:text="${role.name='USER'}">
-												</option>
-											</select>
-											<div class="alert-danger" th:if="${#fields.hasErrors('roles')}"
-												th:errors="*{roles}">Name Error</div>
-										</div>
-									</div>
-							</div>
-
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-
-
-	<!--  Fin Modal Registro -->
-
-
-
-
-	</p>
-	</p>
 
 	<div class="container">
 		<div class="row justify-content-md-center">
@@ -1131,7 +971,7 @@
 			</div>
 		</div>
 
-
+<!--
 
 		<footer id="contacto">
 			<div class="page-header min-vh-85">
@@ -1210,7 +1050,7 @@
 					</div>
 				</div>
 			</div>
-		</footer>
+		</footer>-->
 	</div>
 
 

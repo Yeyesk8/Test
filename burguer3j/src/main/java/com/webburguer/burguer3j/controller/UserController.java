@@ -32,65 +32,66 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
-	
+
 	@Autowired
 	BurguerService burguerservice;
-	
+
 	@Autowired
 	SugerenciasService sugerenciasService;
-	
+
 	@Autowired
 	RoleRepository roleRepository;
 
 	@GetMapping({ "/", "/inicio" })
 	public String index(Model model) {
-		model.addAttribute("userList",userService.getAllUsers());
-		model.addAttribute("roles", roleRepository.findAll());
-		model.addAttribute("registro", new User());
-		model.addAttribute("nuevaSugerencia", new Sugerencias());
-		
+
 		return "index";
 	}
-	
-	@GetMapping({"/login"})
+
+	@GetMapping({ "/login" })
 	public String login() {
-		return "index"; 
+		return "index";
 	}
-	
-	@GetMapping({"/inicioa"})
-	public String inicio(Model model) {	
-		model.addAttribute("userList",userService.getAllUsers());
+
+	@GetMapping({ "/inicioa" })
+	public String inicio(Model model) {
+		model.addAttribute("userList", userService.getAllUsers());
 		return "admin/admin";
 	}
-	
-	@GetMapping({"/inicioc"})
+
+	@GetMapping({ "/inicioc" })
 	public String cliente(Model model) {
-		model.addAttribute("userList",userService.getAllUsers());
-		model.addAttribute("burguerList",burguerservice.getAllBurguers());		
+		model.addAttribute("userList", userService.getAllUsers());
+		model.addAttribute("burguerList", burguerservice.getAllBurguers());
 		return "cliente/usuario";
 	}
-	
+
 	@GetMapping("/registro")
 	public String registro(Model model) {
-		
-		return "redirect:/inicio";
+		long id;
+		id = 2;
+		model.addAttribute("registro", new User());
+		model.addAttribute("roles", roleRepository.findAll());
+
+		return "registro";
 	}
 	
 	@GetMapping("/registro/cancelar")
-	public String cancelregistro(Model model) {
+	public String cancelarRegistro(Model model) {
 		
-		 return "index";
+		return "redirect:/inicio";
 	}
-	
+
 
 	@PostMapping("/registro")
 	public String crearUser(@Valid @ModelAttribute("registro") User user, BindingResult result, ModelMap model) {
-		
-		
+		long id;
+		id = 1;
+
 		if (result.hasErrors()) {
 			model.addAttribute("registro", user);
 			model.addAttribute("roles", roleRepository.findAll());
-			
+
 		} else {
 			try {
 				userService.createUser(user);
@@ -103,39 +104,37 @@ public class UserController {
 				model.addAttribute("roles", roleRepository.findAll());
 			}
 		}
-				
-		model.addAttribute("userList",userService.getAllUsers());
+
 		model.addAttribute("roles", roleRepository.findAll());
-		
+
 		return "redirect:/inicio";
 	}
-	
-	
-	@GetMapping({"/perfil"})
-	public String iniciop(Model model) {	
-		model.addAttribute("userList",userService.getAllUsers());
+
+	@GetMapping({ "/perfil" })
+	public String iniciop(Model model) {
+		model.addAttribute("userList", userService.getAllUsers());
 		return "admin/perfil";
 	}
-	
-	@GetMapping({"/perfilcliente"})
-	public String inicioc(Model model) {	
-		model.addAttribute("userList",userService.getAllUsers());
+
+	@GetMapping({ "/perfilcliente" })
+	public String inicioc(Model model) {
+		model.addAttribute("userList", userService.getAllUsers());
 		return "cliente/perfil-cliente";
 	}
-	
-	@GetMapping({"/nuevaSugerencia"})
+
+	@GetMapping({ "/nuevaSugerencia" })
 	public String nuevaSugerencia(Model model) {
-		
-		
+
 		return "redirect:/inicio";
 	}
-	
+
 	@PostMapping("/nuevaSugerencia")
-	public String crearSugerencias(@Valid @ModelAttribute("nuevaSugerencia") Sugerencias sugerencias, BindingResult result, ModelMap model) {
-		
+	public String crearSugerencias(@Valid @ModelAttribute("nuevaSugerencia") Sugerencias sugerencias,
+			BindingResult result, ModelMap model) {
+
 		if (result.hasErrors()) {
 			model.addAttribute("nuevaSugerencia", sugerencias);
-			
+
 		} else {
 			try {
 				sugerenciasService.createSugerencia(sugerencias);
@@ -148,12 +147,10 @@ public class UserController {
 		}
 		return "redirect:/inicio";
 	}
-	
-	
-	
+
 	@GetMapping("/editarUsuario/{id}")
 	public String getEditarUsuario(Model model, @PathVariable(name = "id") Long id) throws Exception {
-		
+
 		User user = userService.getUserById(id);
 
 		model.addAttribute("editarUsuario", user);
@@ -164,7 +161,8 @@ public class UserController {
 	}
 
 	@PostMapping("/editarUsuario")
-	public String postEditarUsuario(@Valid @ModelAttribute("editarusuario") User user, BindingResult result, ModelMap model) {
+	public String postEditarUsuario(@Valid @ModelAttribute("editarusuario") User user, BindingResult result,
+			ModelMap model) {
 		if (result.hasErrors()) {
 			model.addAttribute("editarusuario", user);
 			model.addAttribute("roles", roleRepository.findAll());
@@ -197,13 +195,13 @@ public class UserController {
 		}
 		return "redirect:/inicioa";
 	}
-	
+
 	@GetMapping("/borrarUsuario/cancel")
 	public String cancelborrarUsuario(Model model) {
 
 		return "redirect:/inicioa";
 	}
-	
+
 	@GetMapping("/borrarSugerencia/{id}")
 	public String borrarSugerencia(Model model, @PathVariable(name = "id") Long id) {
 		try {
@@ -219,8 +217,6 @@ public class UserController {
 
 		return "redirect:/contacto";
 	}
-
-
 
 	@PostMapping("/editUser/changePassword")
 	public ResponseEntity postEditUseChangePassword(@Valid @RequestBody ChangePasswordForm form, Errors errors) {
