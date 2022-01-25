@@ -1,0 +1,164 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Modal Añadir una Baguette -->
+
+<div class="col-md-4" id="registrarbaguette">
+	<div class="modal fade" id="aniadirBaguetteModal" tabindex="-1" role="dialog" aria-labelledby="aniadirBaguetteModal"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-body p-0">
+					<div class="card card-plain">
+						<div class="card-header pb-0 text-center">
+							<h3 class="font-weight-bolder text-info text-danger">Añadir Baguette</h3>
+							<p class="mb-0">Introduce los datos para añadir una nueva Baguette</p>
+						</div>
+						<div class="card-body">
+							<form role="form text-left" th:action="@{/nuevaBaguette}" th:object="${nuevaBaguette}"
+								method="post">
+
+								<input class="form-control" type=hidden th:field="${nuevaBaguette.id}">
+
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label">Nombre</label>
+											<div class="form-group col-md-8">
+												<input type="text" class="form-control" required="required"
+													th:field="${nuevaBaguette.name}">
+												<div class="alert-danger" th:if="${#fields.hasErrors('name')}"
+													th:errors="${name}">Name
+													Error</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-8 col-form-label form-control-label">Contenido</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevaBaguette.contenido}">
+													<option th:value="${nuevaBaguette.contenido='Lomo'}">Lomo
+													</option>
+													<option th:value="${nuevaBaguette.contenido='Bacon'}">Bacon</option>
+													<option th:value="${nuevaBaguette.contenido='Esparragos'}">
+														Esparragos</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('contenido')}"
+													th:errors="${contenido}">Name Error</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-8 col-form-label form-control-label">Tipo de
+												Queso</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevaBaguette.tipo_queso}">
+													<option th:value="${nuevaBaguette.tipo_queso='Cheddar'}">Cheddar
+													</option>
+													<option th:value="${nuevaBaguette.tipo_queso='Gouda'}">Gouda
+													</option>
+													<option th:value="${nuevaBaguette.tipo_queso='Sin Queso'}">Sin Queso
+													</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('tipo_queso')}"
+													th:errors="${tipo_queso}">Name Error</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label">Lechuga</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevaBaguette.lechuga}">
+													<option th:value="${nuevaBaguette.lechuga='Con Lechuga'}">Con
+														Lechuga
+													</option>
+													<option th:value="${nuevaBaguette.lechuga='Sin Lechuga'}">Sin
+														Lechuga
+													</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('lechuga')}"
+													th:errors="${lechuga}">Name Error</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label">Tomate</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevaBaguette.tomate}">
+													<option th:value="${nuevaBaguette.tomate='Con Tomate'}">Con Tomate
+													</option>
+													<option th:value="${nuevaBaguette.tomate='Sin Tomate'}">Sin Tomate
+													</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('tomate')}"
+													th:errors="${tomate}">Name Error</div>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label">Mahonesa</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevaBaguette.mahonesa}">
+													<option th:value="${nuevaBaguette.mahonesa='Con Mahonesa'}">Con
+														Mahonesa
+													</option>
+													<option th:value="${nuevaBaguette.mahonesa='Sin Mahonesa'}">Sin
+														Mahonesa
+													</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('mahonesa')}"
+													th:errors="*{mahonesa}">
+													Name Error</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								</p>
+								</p>
+
+								<div class="text-center">
+									<input type="submit" class="btn bg-gradient-warning btn-sm btn-rounded w-40"
+										style="float: center;" value="Añadir">
+									<a class="btn btn-btn bg-gradient-danger btn-sm btn-rounded w-40" type="button"
+										th:href="@{'/nuevaBaguette/cancelar'}">Cancelar</a>
+
+								</div>
+
+								<div class="alert alert-danger text-center" th:if="${formErrorMessage}"
+									th:text="${formErrorMessage}">Error Message</div>
+
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Fin Modal Añadir una Baguette -->
+
+
+</html>

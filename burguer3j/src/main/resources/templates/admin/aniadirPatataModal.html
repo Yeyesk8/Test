@@ -1,0 +1,100 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Modal Añadir unas Patatas -->
+
+<div class="col-md-4" id="registrarpatata">
+	<div class="modal fade" id="aniadirPatataModal" tabindex="-1" role="dialog" aria-labelledby="aniadirPatataModal"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-body p-0">
+					<div class="card card-plain">
+						<div class="card-header pb-0 text-center">
+							<h3 class="font-weight-bolder text-info text-danger">Añadir Patatas</h3>
+							<p class="mb-0">Introduce los datos para añadir unas Patatas</p>
+						</div>
+						<div class="card-body">
+							<form role="form text-left" th:action="@{/nuevaPatata}" th:object="${nuevaPatata}"
+								method="post">
+
+								<input class="form-control" type=hidden th:field="${nuevaPatata.id}">
+
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label">Nombre</label>
+											<div class="form-group col-md-8">
+												<input type="text" class="form-control" required="required"
+													th:field="${nuevaPatata.name}">
+												<div class="alert-danger" th:if="${#fields.hasErrors('name')}"
+													th:errors="${name}">Name
+													Error</div>
+											</div>
+										</div>
+									</div>								
+								
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label">Gluten</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevaPatata.gluten}">
+													<option th:value="${nuevaPatata.gluten='Con Gluten'}">Con Gluten
+													</option>
+													<option th:value="${nuevaPatata.gluten='Sin Gluten'}">Sin Gluten
+													</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('gluten')}"
+													th:errors="${gluten}">Name Error</div>
+											</div>
+										</div>
+									</div>
+																
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-12 col-form-label form-control-label">Tamaño del Plato</label>
+											<div class="form-group col-md-8">
+												<select class="form-control" type="text" required="required"
+													th:field="${nuevaPatata.tamanio_plato}">
+													<option th:value="${nuevaPatata.tamanio_plato='Grande'}">Grande
+													</option>
+													<option th:value="${nuevaPatata.tamanio_plato='Pequeño'}">Pequeño
+													</option>
+												</select>
+												<div class="alert-danger" th:if="${#fields.hasErrors('tamanio_plato')}"
+													th:errors="${tamanio_plato}">Name Error</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								</p>
+								</p>
+
+								<div class="text-center">
+									<input type="submit" class="btn bg-gradient-warning btn-sm btn-rounded w-30"
+										style="float: center;" value="Añadir">
+									<a class="btn btn-btn bg-gradient-danger btn-sm btn-rounded w-30" type="button"
+										th:href="@{'/nuevaPatata/cancelar'}">Cancelar</a>
+
+								</div>
+
+								<div class="alert alert-danger text-center" th:if="${formErrorMessage}"
+									th:text="${formErrorMessage}">Error Message</div>
+
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Fin Modal Añadir unas Patatas -->
+
+
+</html>
