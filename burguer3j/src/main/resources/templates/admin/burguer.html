@@ -258,7 +258,7 @@
 					</a>
 				</li>
 					<li class="nav-item">
-					<a class="nav-link" th:href="@{/contacto}">
+					<a class="nav-link" th:href="@{/sugerencia}">
 						<div
 							class="icon icon-shape icon-sm shadow border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
 							<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope"
@@ -404,16 +404,12 @@
 
 								<td>
 
-									<!--<<span
+									<span
 										th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')} or (${#authorization.expression('hasRole(''ROLE_USER'')')} and ${#httpServletRequest.remoteUser==user.username})">
-										<a href="#editarburguer" th:href="@{'/burguers/'+ ${burguer.id}}" data-bs-toggle="modal" data-bs-target="#editarBurguerModal"><i
-												class="fas fa-edit"></i></a>
-									</span>-->
-									<span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
-										<a th:onclick="'javascript:editburguer(\''+ ${burguer.id} +'\');'"><i
+										<a href="#" th:href="@{'/editarBurguer/'+ ${burguer.id}}"><i
 												class="fas fa-edit"></i></a>
 									</span>
-									
+																								
 									<span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
 										<a th:onclick="'javascript:confirmDelete(\''+ ${burguer.id} +'\');'"><i
 												class="fas fa-solid fa-trash"></i></a>
@@ -685,23 +681,9 @@
 	</script>
 	
 	
-	<!-- script editar burguers -->
-	
-	<script type="text/javascript">
-		function editburguer(id) {
-			$('#editarBurguerModal').modal('show');
-			$("#burguerIdHiddenInput").val(id);
-		}
-
-		function editarBurguer() {
-			var id = $("#burguerIdHiddenInput").val();
-			window.location = "/editarBurguer/" + id;
-		}
-	</script>
 
 	<div th:include="confirmar-eliminar" th:remove="tag"></div>
 	<div th:include="admin/aniadirBurguerModal.html" th:remove="tag"></div> 
-	<div th:include="admin/editarBurguerModal.html" th:remove="tag"></div> 
 </body>
 
 </html>

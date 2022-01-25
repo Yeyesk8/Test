@@ -33,7 +33,6 @@ public class SandwichController {
 	public String inicio(Model model, Sandwich sandwich) {
 		model.addAttribute("nuevoSandwich", new Sandwich());
 		model.addAttribute("sandwichList",sandwichservice.getAllSandwiches());
-		model.addAttribute("editarSandwich", sandwich);
 		return "admin/sandwich";
 	}
 	
@@ -106,7 +105,7 @@ public class SandwichController {
 
 	}
 
-	@GetMapping("/editarSandwich/cancel")
+	@GetMapping("/editarSandwich/cancelar")
 	public String cancelEditarSandwich(ModelMap model) {
 		
 		return "redirect:/sandwichs";

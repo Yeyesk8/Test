@@ -36,6 +36,7 @@ public class BebidaController {
 	
 	@GetMapping({"/bebidas"})
 	public String inicio(Model model) {	
+		model.addAttribute("nuevaBebida", new Bebida());
 		model.addAttribute("bebidaList",bebidaservice.getAllBebidas());
 		return "admin/bebida";
 	}
@@ -108,7 +109,7 @@ public class BebidaController {
 
 	}
 	
-	@GetMapping("/editarBebida/cancel")
+	@GetMapping("/editarBebida/cancelar")
 	public String canceleditarBebida(ModelMap model) {
 		
 		return "redirect:/bebidas";

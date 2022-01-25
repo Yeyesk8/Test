@@ -122,31 +122,7 @@ public class UserController {
 		return "cliente/perfil-cliente";
 	}
 
-	@GetMapping({ "/nuevaSugerencia" })
-	public String nuevaSugerencia(Model model) {
-
-		return "redirect:/inicio";
-	}
-
-	@PostMapping("/nuevaSugerencia")
-	public String crearSugerencias(@Valid @ModelAttribute("nuevaSugerencia") Sugerencias sugerencias,
-			BindingResult result, ModelMap model) {
-
-		if (result.hasErrors()) {
-			model.addAttribute("nuevaSugerencia", sugerencias);
-
-		} else {
-			try {
-				sugerenciasService.createSugerencia(sugerencias);
-				model.addAttribute("nuevaSugerencia", new Sugerencias());
-
-			} catch (Exception e) {
-				model.addAttribute("formErrorMessage", e.getMessage());
-				model.addAttribute("nuevaSugerencia", sugerencias);
-			}
-		}
-		return "redirect:/inicio";
-	}
+	
 
 	@GetMapping("/editarUsuario/{id}")
 	public String getEditarUsuario(Model model, @PathVariable(name = "id") Long id) throws Exception {

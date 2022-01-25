@@ -31,8 +31,7 @@ public class BurguerController {
 		
 		model.addAttribute("nuevaBurguer", new Burguer());
 		model.addAttribute("burguerList",burguerservice.getAllBurguers());
-		model.addAttribute("editarBurguer", burguer);
-		
+	
 		return "admin/burguer";
 	}
 	
@@ -41,7 +40,7 @@ public class BurguerController {
 	public String nuevaBurguer(Model model) {
 		
 		model.addAttribute("nuevaBurguer", new Burguer());
-		return "redirect:/burguers";
+		return "/admin/aniadirburguer";
 	}
 	
 	@GetMapping("/nuevaBurguer/cancelar")
@@ -78,7 +77,7 @@ public class BurguerController {
 		Burguer burguer = burguerservice.getBurguerById(id);
 		model.addAttribute("editarBurguer", burguer);
 		
-		return "redirect:/burguers";
+		return "admin/editarburguer";
 	}
 
 	@PostMapping("/editarBurguer")

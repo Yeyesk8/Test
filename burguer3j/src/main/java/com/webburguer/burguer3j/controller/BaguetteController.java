@@ -20,6 +20,7 @@ import javax.validation.Valid;
 
 import com.webburguer.burguer3j.Exception.BaguetteNameOrIdNotFound;
 import com.webburguer.burguer3j.entity.Baguette;
+import com.webburguer.burguer3j.entity.Sandwich;
 import com.webburguer.burguer3j.service.BaguetteService;
 
 
@@ -31,6 +32,7 @@ public class BaguetteController {
 	
 	@GetMapping({"/baguettes"})
 	public String inicio(Model model) {	
+		model.addAttribute("nuevaBaguette", new Baguette());
 		model.addAttribute("baguetteList",baguetteservice.getAllBaguettes());
 		return "admin/baguette";
 	}
@@ -105,7 +107,7 @@ public class BaguetteController {
 
 	}
 
-	@GetMapping("/editarBaguette/cancel")
+	@GetMapping("/editarBaguette/cancelar")
 	public String cancelEditarBaguette(ModelMap model) {
 		
 		return "redirect:/baguettes";

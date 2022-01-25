@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import com.webburguer.burguer3j.Exception.PatataNameOrIdNotFound;
+import com.webburguer.burguer3j.entity.Burguer;
 import com.webburguer.burguer3j.entity.Patata;
 import com.webburguer.burguer3j.service.PatataService;
 
@@ -32,6 +33,7 @@ public class PatataController {
 	
 	@GetMapping({"/patatas"})
 	public String inicio(Model model) {	
+		model.addAttribute("nuevaPatata", new Patata());
 		model.addAttribute("patataList",patataservice.getAllPatatas());
 		return "admin/patata";
 	}
@@ -107,7 +109,7 @@ public class PatataController {
 
 	}
 
-	@GetMapping("/editarPatata/cancel")
+	@GetMapping("/editarPatata/cancelar")
 	public String cancelEditarPatata(ModelMap model) {
 		
 		return "redirect:/patatas";

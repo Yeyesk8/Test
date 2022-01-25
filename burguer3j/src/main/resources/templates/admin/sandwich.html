@@ -257,7 +257,7 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" th:href="@{/contacto}">
+					<a class="nav-link" th:href="@{/sugerencia}">
 						<div
 							class="icon icon-shape icon-sm shadow border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
 							<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope"
@@ -309,7 +309,7 @@
 
 			<div class="card">
 				<div class="table-responsive">
-					<table class="table align-items-center mb-0" id="burguerList">
+					<table class="table align-items-center mb-0" id="sandwichList">
 						<thead>
 							<tr>
 								<th
@@ -342,10 +342,10 @@
 								<th
 									class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
 									York</th>
-
 								<th
 									class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
 									Mahonesa</th>
+
 								<th class="text-secondary opacity-7"></th>
 							</tr>
 						</thead>
@@ -395,21 +395,26 @@
 									<p class="text-xs font-weight-bold mb-0" th:text="${sandwich.mahonesa}"></p>
 								</td>
 
+
 								<td>
+
 									<span
 										th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')} or (${#authorization.expression('hasRole(''ROLE_USER'')')} and ${#httpServletRequest.remoteUser==user.username})">
 										<a href="#" th:href="@{'/editarSandwich/'+ ${sandwich.id}}"><i
 												class="fas fa-edit"></i></a>
 									</span>
+																								
 									<span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
 										<a th:onclick="'javascript:confirmDelete(\''+ ${sandwich.id} +'\');'"><i
 												class="fas fa-solid fa-trash"></i></a>
 									</span>
+
 								</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
+			</div>
 			</div>
 			</p>
 			</p>

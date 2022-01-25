@@ -257,7 +257,7 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" th:href="@{/contacto}">
+					<a class="nav-link" th:href="@{/sugerencia}">
 						<div
 							class="icon icon-shape icon-sm shadow border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
 							<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope"
@@ -386,8 +386,8 @@
 			</p>
 			</p>
 
-			<a th:href="@{'/nuevaBaguette/'}" class="btn btn-sm  bg-gradient-warning  btn-round mb-0 me-1 mt-2 mt-md-0"
-				style="float: left;">Añadir Baguette</a>
+			<a href="#registrarbaguette" class="btn btn-sm  bg-gradient-warning  btn-round mb-0 me-1 mt-2 mt-md-0"
+				style="float: left;" data-bs-toggle="modal" data-bs-target="#aniadirBaguetteModal">Añadir Baguette</a>
 
 
 		</div>
@@ -637,6 +637,7 @@
 	</script>
 
 	<div th:include="confirmar-eliminar" th:remove="tag"></div>
+	<div th:include="admin/aniadirBaguetteModal.html" th:remove="tag"></div> 
 </body>
 
 </html>

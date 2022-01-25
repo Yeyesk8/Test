@@ -22,7 +22,7 @@ public class BurguerServiceImpl implements BurguerService {
 	}
 	
 	private boolean checkNameAvailable(Burguer burguer) throws Exception {
-		Optional<Burguer> burguerFound = (Optional<Burguer>) brepository.findByName(burguer.getName());
+		Optional<Burguer> burguerFound = brepository.findByName(burguer.getName());
 		if (burguerFound.isPresent()) {
 			throw new Exception("Hamburguesa no disponible");
 		}
@@ -51,6 +51,7 @@ public class BurguerServiceImpl implements BurguerService {
 	}
 
 	protected void mapBurguer(Burguer from, Burguer to) {
+		to.setId(from.getId());
 		to.setName(from.getName());
 		to.setTipo_carne(from.getTipo_carne());
 		to.setGluten(from.getGluten());
