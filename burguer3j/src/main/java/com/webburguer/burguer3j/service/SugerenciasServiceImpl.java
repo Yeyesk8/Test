@@ -45,6 +45,7 @@ public class SugerenciasServiceImpl implements SugerenciasService {
 	}
 	
 	protected void mapSugerencia(Sugerencias from, Sugerencias to) {
+		to.setId(from.getId());
 		to.setFullname(from.getFullname());
 		to.setEmail(from.getEmail());
 		to.setMensaje(from.getMensaje());

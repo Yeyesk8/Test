@@ -137,8 +137,8 @@ public class UserController {
 	}
 
 	@PostMapping("/editarUsuario")
-	public String postEditarUsuario(@Valid @ModelAttribute("editarusuario") User user, BindingResult result,
-			ModelMap model) {
+	public String postEditarUsuario(@Valid @ModelAttribute("editarusuario") User user, BindingResult result, ModelMap model) {
+		
 		if (result.hasErrors()) {
 			model.addAttribute("editarusuario", user);
 			model.addAttribute("roles", roleRepository.findAll());
@@ -157,7 +157,7 @@ public class UserController {
 
 	}
 
-	@GetMapping("/editarUsuario/cancel")
+	@GetMapping("/editarUsuario/cancelar")
 	public String cancelEditarUsuario(ModelMap model) {
 		return "redirect:/inicioa";
 	}
@@ -178,21 +178,6 @@ public class UserController {
 		return "redirect:/inicioa";
 	}
 
-	@GetMapping("/borrarSugerencia/{id}")
-	public String borrarSugerencia(Model model, @PathVariable(name = "id") Long id) {
-		try {
-			sugerenciasService.borrarSugerencia(id);
-		} catch (Exception e) {
-			model.addAttribute("listErrorMessage", e.getMessage());
-		}
-		return "redirect:/inicioa";
-	}
-
-	@GetMapping("/borrarSugerencia/cancel")
-	public String cancelborrarSugerencia(Model model) {
-
-		return "redirect:/contacto";
-	}
 
 	@PostMapping("/editUser/changePassword")
 	public ResponseEntity postEditUseChangePassword(@Valid @RequestBody ChangePasswordForm form, Errors errors) {

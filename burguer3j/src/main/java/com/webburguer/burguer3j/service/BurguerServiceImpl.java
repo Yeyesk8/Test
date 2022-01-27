@@ -11,16 +11,15 @@ import com.webburguer.burguer3j.repository.BurguerRepository;
 
 @Service
 public class BurguerServiceImpl implements BurguerService {
-	
+
 	@Autowired
 	BurguerRepository brepository;
-
 
 	@Override
 	public Iterable<Burguer> getAllBurguers() {
 		return brepository.findAll();
 	}
-	
+
 	private boolean checkNameAvailable(Burguer burguer) throws Exception {
 		Optional<Burguer> burguerFound = brepository.findByName(burguer.getName());
 		if (burguerFound.isPresent()) {
@@ -28,7 +27,6 @@ public class BurguerServiceImpl implements BurguerService {
 		}
 		return true;
 	}
-	
 
 	@Override
 	public Burguer createBurguer(Burguer burguer) throws Exception {
@@ -40,18 +38,11 @@ public class BurguerServiceImpl implements BurguerService {
 
 	@Override
 	public Burguer getBurguerById(Long id) throws BurguerNameOrIdNotFound {
-		return brepository.findById(id).orElseThrow(() -> new BurguerNameOrIdNotFound("El Id de la Hamburguesa no existe."));
-	}
-
-	@Override
-	public Burguer updateBurguer(Burguer fromBurguer) throws Exception {
-		Burguer toBurguer = getBurguerById(fromBurguer.getId());
-		mapBurguer(fromBurguer, toBurguer);
-		return brepository.save(toBurguer);
+		return brepository.findById(id)
+				.orElseThrow(() -> new BurguerNameOrIdNotFound("El Id de la Hamburguesa no existe."));
 	}
 
 	protected void mapBurguer(Burguer from, Burguer to) {
-		to.setId(from.getId());
 		to.setName(from.getName());
 		to.setTipo_carne(from.getTipo_carne());
 		to.setGluten(from.getGluten());
@@ -63,13 +54,21 @@ public class BurguerServiceImpl implements BurguerService {
 		to.setPepinillo(from.getPepinillo());
 		to.setTomate(from.getTomate());
 		to.setYork(from.getYork());
-		
+
 	}
+
+	@Override
+	public Burguer updateBurguer(Burguer burguer) throws Exception {
+		Burguer toBurguer = getBurguerById(burguer.getId());
+		mapBurguer(burguer, toBurguer);
+		
+		return brepository.save(toBurguer);
+	}
+
 	@Override
 	public void borrarBurguer(Long id) throws BurguerNameOrIdNotFound {
 		Burguer burguer = getBurguerById(id);
 		brepository.delete(burguer);
 	}
-
 
 }

@@ -17,16 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;
-
-import com.webburguer.burguer3j.Exception.UsernameOrIdNotFound;
-import com.webburguer.burguer3j.dto.ChangePasswordForm;
-import com.webburguer.burguer3j.entity.Role;
 import com.webburguer.burguer3j.entity.Sugerencias;
-import com.webburguer.burguer3j.entity.User;
-import com.webburguer.burguer3j.repository.RoleRepository;
-import com.webburguer.burguer3j.service.BurguerService;
 import com.webburguer.burguer3j.service.SugerenciasService;
-import com.webburguer.burguer3j.service.UserService;
+
 
 @Controller
 public class SugerenciaController {
@@ -34,12 +27,14 @@ public class SugerenciaController {
 	@Autowired
 	SugerenciasService sugerenciasService;
 	
+
 	@GetMapping({ "/sugerencia" })
-	public String Sugerencia(Model model) {
+	public String inicio(Model model) {
 		model.addAttribute("sugerenciaList", sugerenciasService.getAllSugerencias());
 
 		return "admin/sugerencias";
 	}
+	
 
 	@PostMapping("/sugerencia")
 	public String crearSugerencias(@Valid @ModelAttribute("sugerencia") Sugerencias sugerencias,
@@ -59,5 +54,21 @@ public class SugerenciaController {
 			}
 		}
 		return "redirect:/inicio";
+	}
+	
+	@GetMapping("/borrarSugerencia/{id}")
+	public String borrarSugerencia(Model model, @PathVariable(name = "id") Long id) {
+		try {
+			sugerenciasService.borrarSugerencia(id);
+		} catch (Exception e) {
+			model.addAttribute("listErrorMessage", e.getMessage());
+		}
+		return "redirect:/sugerencia";
+	}
+
+	@GetMapping("/borrarSugerencia/cancelar")
+	public String cancelborrarSugerencia(Model model) {
+
+		return "redirect:/sugerencia";
 	}
 }

@@ -75,6 +75,7 @@ public class BurguerController {
 	public String getEditarBurguer(Model model, @PathVariable(name = "id") Long id) throws Exception {
 		
 		Burguer burguer = burguerservice.getBurguerById(id);
+		
 		model.addAttribute("editarBurguer", burguer);
 		
 		return "admin/editarburguer";

@@ -161,7 +161,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLongTitle">Eliminar Sugerencias</h5>
-				<a th:href="@{'/borrarSugerencia/cancel/'}" type="button" class="close" data-dismiss="modal"
+				<a th:href="@{'/borrarSugerencia/cancelar/'}" type="button" class="close" data-dismiss="modal"
 					aria-label="Close">x</a>
 				</button>
 			</div>
@@ -170,7 +170,7 @@
 				<input type="hidden" id="sugerenciaIdHiddenInput" name="sugerenciaIdHiddenInput" />
 			</div>
 			<div class="modal-footer">
-				<a th:href="@{'/borrarSugerencia/cancel/'}" class="btn bg-gradient-warning">Cancelar</a>
+				<a th:href="@{'/borrarSugerencia/cancelar/'}" class="btn bg-gradient-warning">Cancelar</a>
 				<button type="button" class="btn btn bg-gradient-danger" th:onclick="borrarSugerencia()">Borrar</button>
 			</div>
 		</div>
