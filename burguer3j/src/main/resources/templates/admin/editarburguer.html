@@ -1,4 +1,3 @@
-
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -286,7 +285,7 @@
 
 			<div class="card">
 				<form class="form" role="form" autocomplete="off" th:object="${editarBurguer}"
-					th:action="@{/editarBurguer}" method="post">
+					th:action="@{/editarBurguer}" method="post" enctype="multipart/form-data">
 
 					<input class="form-control" type=hidden th:field="${editarBurguer.id}">
 
@@ -465,18 +464,65 @@
 								</div>
 							</div>
 						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="col-lg-6 col-form-label form-control-label">Precio</label>
+								<div class="form-group col-md-4">
+									<input class="form-control" type="text" required="required"
+										th:field="${editarBurguer.precio}">
+									<div class="alert-danger" th:if="${#fields.hasErrors('precio')}"
+										th:errors="*{precio}">
+										Name
+										Error</div>
+								</div>
+							</div>
+						</div>
 					</div>
-					
-							<div class="text-center">
-									<input type="submit" class="btn bg-gradient-warning btn-sm btn-rounded w-10"
-										style="float: center;" value="editar">
-									<a class="btn btn-btn bg-gradient-danger btn-sm btn-rounded w-10" type="button"
-										th:href="@{'/editarBurguer/cancelar'}">Cancelar</a>
+
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="col-lg-6 col-form-label form-control-label">Descripcion</label>
+								<div class="form-group col-md-24">
+									<textarea cl ass="form-control" type="text" required="required"
+										th:field="${editarBurguer.descripcion}" rows="3"></textarea>
+									<div class="alert-danger" th:if="${#fields.hasErrors('descripcion')}"
+										th:errors="*{descripcion}">
+										Name
+										Error</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="col-lg-6 col-form-label form-control-label" for="img">Imagen</label>
+								<div class="form-group col-md-50">
+									<input class="form-control" type="file" id="img" name="img"
+										th:value="${editarBurguer.imagen}">
+									<div class="alert-danger" th:if="${#fields.hasErrors('imagen')}"
+										th:errors="*{imagen}">
+										Name
+										Error</div>
 
 								</div>
+							</div>
+						</div>
+					</div>
 
-							<div class="alert alert-danger text-center" th:if="${formErrorMessage}"
-								th:text="${formErrorMessage}">Error MEssage</div>
+
+
+					<div class="text-center">
+						<input type="submit" class="btn bg-gradient-warning btn-sm btn-rounded w-10"
+							style="float: center;" value="editar">
+						<a class="btn btn-btn bg-gradient-danger btn-sm btn-rounded w-10" type="button"
+							th:href="@{'/editarBurguer/cancelar'}">Cancelar</a>
+
+					</div>
+
+					<div class="alert alert-danger text-center" th:if="${formErrorMessage}"
+						th:text="${formErrorMessage}">Error MEssage</div>
 				</form>
 			</div>
 		</div>

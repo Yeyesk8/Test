@@ -54,6 +54,10 @@ public class BurguerServiceImpl implements BurguerService {
 		to.setPepinillo(from.getPepinillo());
 		to.setTomate(from.getTomate());
 		to.setYork(from.getYork());
+		to.setPrecio(from.getPrecio());
+		to.setDescripcion(from.getDescripcion());
+		to.setImagen(from.getImagen());
+		
 
 	}
 
@@ -69,6 +73,12 @@ public class BurguerServiceImpl implements BurguerService {
 	public void borrarBurguer(Long id) throws BurguerNameOrIdNotFound {
 		Burguer burguer = getBurguerById(id);
 		brepository.delete(burguer);
+	}
+
+	@Override
+	public Optional<Burguer> get(Long id) {
+		return brepository.findById(id);
+
 	}
 
 }
