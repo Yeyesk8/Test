@@ -75,6 +75,19 @@ public class Burguer implements Serializable {
 	@Column
 	private String york;
 	
+	@NotBlank
+	@Column
+	private String descripcion;
+	
+	@NotBlank
+	@Column
+	private String imagen;
+	
+	@NotBlank
+	@Column
+	private double precio;
+	
+	
 
 	
 	public Burguer() {
@@ -182,19 +195,44 @@ public class Burguer implements Serializable {
 	public void setYork(String york) {
 		this.york = york;
 	}
+	
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
 
 	@Override
 	public String toString() {
 		return "Burguer [id=" + id + ", name=" + name + ", tipo_carne=" + tipo_carne + ", gluten=" + gluten
 				+ ", tipo_queso=" + tipo_queso + ", lechuga=" + lechuga + ", cebolla=" + cebolla + ", bacon=" + bacon
 				+ ", tipo_huevo=" + tipo_huevo + ", pepinillo=" + pepinillo + ", tomate=" + tomate + ", york=" + york
-				+ "]";
+				+ ", descripcion=" + descripcion + ", imagen=" + imagen + ", precio=" + precio + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(bacon, cebolla, gluten, id, lechuga, name, pepinillo, tipo_carne, tipo_huevo, tipo_queso,
-				tomate, york);
+		return Objects.hash(bacon, cebolla, descripcion, gluten, id, imagen, lechuga, name, pepinillo, precio,
+				tipo_carne, tipo_huevo, tipo_queso, tomate, york);
 	}
 
 	@Override
@@ -207,11 +245,19 @@ public class Burguer implements Serializable {
 			return false;
 		Burguer other = (Burguer) obj;
 		return Objects.equals(bacon, other.bacon) && Objects.equals(cebolla, other.cebolla)
-				&& Objects.equals(gluten, other.gluten) && Objects.equals(id, other.id)
+				&& Objects.equals(descripcion, other.descripcion) && Objects.equals(gluten, other.gluten)
+				&& Objects.equals(id, other.id) && Objects.equals(imagen, other.imagen)
 				&& Objects.equals(lechuga, other.lechuga) && Objects.equals(name, other.name)
-				&& Objects.equals(pepinillo, other.pepinillo) && Objects.equals(tipo_carne, other.tipo_carne)
-				&& Objects.equals(tipo_huevo, other.tipo_huevo) && Objects.equals(tipo_queso, other.tipo_queso)
-				&& Objects.equals(tomate, other.tomate) && Objects.equals(york, other.york);
+				&& Objects.equals(pepinillo, other.pepinillo)
+				&& Double.doubleToLongBits(precio) == Double.doubleToLongBits(other.precio)
+				&& Objects.equals(tipo_carne, other.tipo_carne) && Objects.equals(tipo_huevo, other.tipo_huevo)
+				&& Objects.equals(tipo_queso, other.tipo_queso) && Objects.equals(tomate, other.tomate)
+				&& Objects.equals(york, other.york);
 	}
+	
+	
 
+	
+
+	
 }

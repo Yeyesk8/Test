@@ -44,6 +44,8 @@ public class UserController {
 
 	@GetMapping({ "/", "/inicio" })
 	public String index(Model model) {
+		model.addAttribute("burguerList", burguerservice.getAllBurguers());
+		
 
 		return "index";
 	}

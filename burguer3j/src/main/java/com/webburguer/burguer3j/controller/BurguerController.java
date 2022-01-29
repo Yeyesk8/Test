@@ -1,5 +1,7 @@
 package com.webburguer.burguer3j.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,21 +12,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
-
-
+import java.io.IOException;
 
 import javax.validation.Valid;
 
+import com.webburguer.burguer3j.service.UploadFileService;
 import com.webburguer.burguer3j.Exception.BurguerNameOrIdNotFound;
 import com.webburguer.burguer3j.entity.Burguer;
 import com.webburguer.burguer3j.service.BurguerService;
 
 @Controller
 public class BurguerController {
+	
+	private final Logger LOGGER = LoggerFactory.getLogger(BurguerController.class);
 
 	@Autowired
 	BurguerService burguerservice;
+	
+	@Autowired
+	private UploadFileService upload;
 	
 	@GetMapping({"/burguers"})
 	public String inicio(Model model, Burguer burguer) {	
@@ -50,7 +59,9 @@ public class BurguerController {
 	
 
 	@PostMapping("/nuevaBurguer")
-	public String crearBurguer(@Valid @ModelAttribute("nuevaBurguer") Burguer burguer, BindingResult result, ModelMap model) {
+	public String crearBurguer(@Valid @ModelAttribute("nuevaBurguer") Burguer burguer, @RequestParam("img") MultipartFile file, BindingResult result, ModelMap model) throws IOException {
+		
+		LOGGER.info("Este es el objeto burguer {}",burguer);
 		
 		if (result.hasErrors()) {
 			model.addAttribute("nuevaBurguer", burguer);
@@ -58,6 +69,13 @@ public class BurguerController {
 			
 		} else {
 			try {
+				//imagen
+				if (burguer.getId()==null) { // cuando se crea un producto
+					String nombreImagen= upload.saveImage(file);
+					burguer.setImagen(nombreImagen);
+				}else {
+					
+				}
 				burguerservice.createBurguer(burguer);
 				model.addAttribute("nuevaBurguer", new Burguer());
 
@@ -82,12 +100,28 @@ public class BurguerController {
 	}
 
 	@PostMapping("/editarBurguer")
-	public String postEditarBurguer(@Valid @ModelAttribute("editarburguer") Burguer burguer, BindingResult result, ModelMap model) {
+	public String postEditarBurguer(@Valid @ModelAttribute("editarburguer") Burguer burguer,@RequestParam("img") MultipartFile file, BindingResult result, ModelMap model) throws IOException {
+		
+		Burguer b = new Burguer();
+		b=burguerservice.get(burguer.getId()).get();
 		
 		if (result.hasErrors()) {
 			model.addAttribute("editarburguer", burguer);
-			
+					
 		} else {
+
+			if (file.isEmpty()) { // editamos el producto pero no cambiamos la imagem
+				
+				burguer.setImagen(b.getImagen());
+			}
+			else {// cuando se edita tbn la imagen			
+				//eliminar cuando no sea la imagen por defecto
+				if (!b.getImagen().equals("normal.jpg")) {
+					upload.deleteImage(b.getImagen());
+				}
+				String nombreImagen= upload.saveImage(file);
+				burguer.setImagen(nombreImagen);
+			}
 			try {
 				burguerservice.updateBurguer(burguer);
 			} catch (Exception e) {
