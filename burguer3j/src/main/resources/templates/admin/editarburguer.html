@@ -469,12 +469,7 @@
 							<div class="form-group">
 								<label class="col-lg-6 col-form-label form-control-label">Precio</label>
 								<div class="form-group col-md-4">
-<<<<<<< HEAD
 									<input class="form-control" type="text" th:field="${editarBurguer.precio}">
-=======
-									<input class="form-control" type="text" required="required"
-										th:field="${editarBurguer.precio}">
->>>>>>> branch 'master' of git@github.com:Yeyesk8/TFG.git
 									<div class="alert-danger" th:if="${#fields.hasErrors('precio')}"
 										th:errors="*{precio}">
 										Name
@@ -489,7 +484,6 @@
 							<div class="form-group">
 								<label class="col-lg-6 col-form-label form-control-label">Descripcion</label>
 								<div class="form-group col-md-24">
-<<<<<<< HEAD
 									<textarea class="form-control" type="text" th:field="${editarBurguer.descripcion}" rows="3"></textarea>
 									<div class="alert-danger" th:if="${#fields.hasErrors('descripcion')}"
 										th:errors="*{descripcion}">
@@ -502,23 +496,7 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label class="col-lg-6 col-form-label form-control-label" for="img">Imagen</label>
-								<div class="form-group col-md-16">
-=======
-									<textarea cl ass="form-control" type="text" required="required"
-										th:field="${editarBurguer.descripcion}" rows="3"></textarea>
-									<div class="alert-danger" th:if="${#fields.hasErrors('descripcion')}"
-										th:errors="*{descripcion}">
-										Name
-										Error</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="form-group">
-								<label class="col-lg-6 col-form-label form-control-label" for="img">Imagen</label>
 								<div class="form-group col-md-50">
->>>>>>> branch 'master' of git@github.com:Yeyesk8/TFG.git
 									<input class="form-control" type="file" id="img" name="img"
 										th:value="${editarBurguer.imagen}">
 									<div class="alert-danger" th:if="${#fields.hasErrors('imagen')}"

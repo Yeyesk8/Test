@@ -69,12 +69,7 @@ public class BurguerController {
 			
 		} else {
 			try {
-<<<<<<< HEAD
 				if (burguer.getId()==null) { // cuando se crea una burguer
-=======
-				//imagen
-				if (burguer.getId()==null) { // cuando se crea un producto
->>>>>>> branch 'master' of git@github.com:Yeyesk8/TFG.git
 					String nombreImagen= upload.saveImage(file);
 					burguer.setImagen(nombreImagen);
 				}else {
@@ -114,7 +109,6 @@ public class BurguerController {
 					
 		} else {
 
-<<<<<<< HEAD
 			if (file.isEmpty()) { // editamos la burguer pero no cambiamos la imagen
 				
 				burguer.setImagen(b.getImagen());
@@ -122,15 +116,6 @@ public class BurguerController {
 			else {// cuando se edita tambien la imagen			
 				//se elimina cuando no sea la imagen por defecto y se actualiza a la nueva
 				if (!b.getImagen().equals("defecto.jpg")) {
-=======
-			if (file.isEmpty()) { // editamos el producto pero no cambiamos la imagem
-				
-				burguer.setImagen(b.getImagen());
-			}
-			else {// cuando se edita tbn la imagen			
-				//eliminar cuando no sea la imagen por defecto
-				if (!b.getImagen().equals("normal.jpg")) {
->>>>>>> branch 'master' of git@github.com:Yeyesk8/TFG.git
 					upload.deleteImage(b.getImagen());
 				}
 				String nombreImagen= upload.saveImage(file);

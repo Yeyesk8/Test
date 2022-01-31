@@ -49,10 +49,9 @@ public class UserController {
 	@GetMapping({ "/", "/inicio" })
 	public String index(Model model) {
 		model.addAttribute("burguerList", burguerservice.getAllBurguers());
-<<<<<<< HEAD
+
 		model.addAttribute("sandwichList", sandwichservice.getAllSandwiches());
-=======
->>>>>>> branch 'master' of git@github.com:Yeyesk8/TFG.git
+
 		
 
 		return "index";
