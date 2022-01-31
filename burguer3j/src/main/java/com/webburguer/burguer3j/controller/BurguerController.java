@@ -69,8 +69,7 @@ public class BurguerController {
 			
 		} else {
 			try {
-				//imagen
-				if (burguer.getId()==null) { // cuando se crea un producto
+				if (burguer.getId()==null) { // cuando se crea una burguer
 					String nombreImagen= upload.saveImage(file);
 					burguer.setImagen(nombreImagen);
 				}else {
@@ -110,13 +109,13 @@ public class BurguerController {
 					
 		} else {
 
-			if (file.isEmpty()) { // editamos el producto pero no cambiamos la imagem
+			if (file.isEmpty()) { // editamos la burguer pero no cambiamos la imagen
 				
 				burguer.setImagen(b.getImagen());
 			}
-			else {// cuando se edita tbn la imagen			
-				//eliminar cuando no sea la imagen por defecto
-				if (!b.getImagen().equals("normal.jpg")) {
+			else {// cuando se edita tambien la imagen			
+				//se elimina cuando no sea la imagen por defecto y se actualiza a la nueva
+				if (!b.getImagen().equals("defecto.jpg")) {
 					upload.deleteImage(b.getImagen());
 				}
 				String nombreImagen= upload.saveImage(file);

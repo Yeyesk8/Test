@@ -24,6 +24,7 @@ import com.webburguer.burguer3j.entity.Sugerencias;
 import com.webburguer.burguer3j.entity.User;
 import com.webburguer.burguer3j.repository.RoleRepository;
 import com.webburguer.burguer3j.service.BurguerService;
+import com.webburguer.burguer3j.service.SandwichService;
 import com.webburguer.burguer3j.service.SugerenciasService;
 import com.webburguer.burguer3j.service.UserService;
 
@@ -35,6 +36,9 @@ public class UserController {
 
 	@Autowired
 	BurguerService burguerservice;
+	
+	@Autowired
+	SandwichService sandwichservice;
 
 	@Autowired
 	SugerenciasService sugerenciasService;
@@ -45,6 +49,7 @@ public class UserController {
 	@GetMapping({ "/", "/inicio" })
 	public String index(Model model) {
 		model.addAttribute("burguerList", burguerservice.getAllBurguers());
+		model.addAttribute("sandwichList", sandwichservice.getAllSandwiches());
 		
 
 		return "index";

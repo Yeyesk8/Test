@@ -38,8 +38,7 @@ public class BurguerServiceImpl implements BurguerService {
 
 	@Override
 	public Burguer getBurguerById(Long id) throws BurguerNameOrIdNotFound {
-		return brepository.findById(id)
-				.orElseThrow(() -> new BurguerNameOrIdNotFound("El Id de la Hamburguesa no existe."));
+		return brepository.findById(id).orElseThrow(() -> new BurguerNameOrIdNotFound("El Id de la Hamburguesa no existe."));
 	}
 
 	protected void mapBurguer(Burguer from, Burguer to) {

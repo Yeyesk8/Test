@@ -21,7 +21,7 @@ public class UploadFileService {
 			Files.write(path, bytes);
 			return file.getOriginalFilename();
 		}
-		return "normal.jpg";
+		return "defecto.jpg";
 	}
 	
 	public void deleteImage(String nombre) {

@@ -273,8 +273,8 @@
 
 	<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
 		<div class="container-fluid" id="sandwiches">
-			<div class="page-header min-height-300 border-radius-xl mt-4"
-				style="background-image: url('/img/Fondo.jpg'); background-position-y: 50%;">
+			<div class="page-header min-height-200 border-radius-xl mt-4"
+				style="background-image: url('/img/Fondo2.jpg'); background-position-y: 50%;">
 				<span class="mask bg-gradient-danger opacity-6"></span>
 			</div>
 
@@ -284,7 +284,7 @@
 
 			<div class="card">
 				<form class="form" role="form" autocomplete="off" th:object="${editarSandwich}"
-					th:action="@{/editarSandwich}" method="post">
+					th:action="@{/editarSandwich}" method="post" enctype="multipart/form-data">
 
 					<input class="form-control" type=hidden th:field="${editarSandwich.id}">
 
@@ -306,8 +306,7 @@
 							<div class="form-group">
 								<label class="col-lg-6 col-form-label form-control-label">Gluten</label>
 								<div class="form-group col-md-4">
-									<select class="form-control" type="text" required="required"
-										th:field="${editarSandwich.gluten}">
+									<select class="form-control" type="text" th:field="${editarSandwich.gluten}">
 										<option th:value="${editarSandwich.gluten='Con Gluten'}">Con Gluten</option>
 										<option th:value="${editarSandwich.gluten='Sin Gluten'}">Sin Gluten</option>
 									</select>
@@ -323,8 +322,7 @@
 							<div class="form-group">
 								<label class="col-lg-6 col-form-label form-control-label">Bacon</label>
 								<div class="form-group col-md-4">
-									<select class="form-control" type="text" required="required"
-										th:field="${editarSandwich.bacon}">
+									<select class="form-control" type="text" th:field="${editarSandwich.bacon}">
 										<option th:value="${editarSandwich.bacon='Con Bacon'}">Con Bacon</option>
 										<option th:value="${editarSandwich.bacon='Sin Bacon'}">Sin Bacon</option>
 									</select>
@@ -341,8 +339,7 @@
 							<div class="form-group">
 								<label class="col-lg-8 col-form-label form-control-label">Lechuga</label>
 								<div class="form-group col-md-4">
-									<select class="form-control" type="text" required="required"
-										th:field="${editarSandwich.lechuga}">
+									<select class="form-control" type="text" th:field="${editarSandwich.lechuga}">
 										<option th:value="${editarSandwich.lechuga='Con Lechuga'}">Con Lechuga</option>
 										<option th:value="${editarSandwich.lechuga='Sin Lechuga'}">Sin Lechuga</option>
 									</select>
@@ -358,8 +355,7 @@
 							<div class="form-group">
 								<label class="col-lg-6 col-form-label form-control-label">Tomate</label>
 								<div class="form-group col-md-4">
-									<select class="form-control" type="text" required="required"
-										th:field="${editarSandwich.tomate}">
+									<select class="form-control" type="text" th:field="${editarSandwich.tomate}">
 										<option th:value="${editarSandwich.tomate='Con Tomate'}">Con Tomate</option>
 										<option th:value="${editarSandwich.tomate='Sin Tomate'}">Sin Tomate</option>
 									</select>
@@ -373,8 +369,7 @@
 							<div class="form-group">
 								<label class="col-lg-6 col-form-label form-control-label">Esparragos</label>
 								<div class="form-group col-md-4">
-									<select class="form-control" type="text" required="required"
-										th:field="${editarSandwich.esparragos}">
+									<select class="form-control" type="text" th:field="${editarSandwich.esparragos}">
 										<option th:value="${editarSandwich.esparragos='Con Esparragos'}">Con Esparragos
 										</option>
 										<option th:value="${editarSandwich.esparragos='Sin Esparragos'}">Sin Esparragos
@@ -392,8 +387,7 @@
 							<div class="form-group">
 								<label class="col-lg-8 col-form-label form-control-label">Tipo de Huevo</label>
 								<div class="form-group col-md-4">
-									<select class="form-control" type="text" required="required"
-										th:field="${editarSandwich.tipo_huevo}">
+									<select class="form-control" type="text" th:field="${editarSandwich.tipo_huevo}">
 										<option th:value="${editarSandwich.tipo_huevo='Huevo Frito'}">Huevo Frito
 										</option>
 										<option th:value="${editarSandwich.tipo_huevo='Huevo a la Plancha'}">Huevo a la
@@ -411,8 +405,7 @@
 							<div class="form-group">
 								<label class="col-lg-8 col-form-label form-control-label">Tipo de Queso</label>
 								<div class="form-group col-md-4">
-									<select class="form-control" type="text" required="required"
-										th:field="${editarSandwich.tipo_queso}">
+									<select class="form-control" type="text" th:field="${editarSandwich.tipo_queso}">
 										<option th:value="${editarSandwich.tipo_queso='Cheddar'}">Cheddar</option>
 										<option th:value="${editarSandwich.tipo_queso='Gouda'}">Gouda</option>
 										<option th:value="${editarSandwich.tipo_queso='Sin Queso'}">Sin Queso</option>
@@ -427,8 +420,7 @@
 							<div class="form-group">
 								<label class="col-lg-8 col-form-label form-control-label">York</label>
 								<div class="form-group col-md-4">
-									<select class="form-control" type="text" required="required"
-										th:field="${editarSandwich.york}">
+									<select class="form-control" type="text" th:field="${editarSandwich.york}">
 										<option th:value="${editarSandwich.york='Con York'}">Con York</option>
 										<option th:value="${editarSandwich.york='Sin York'}">Sin York</option>
 									</select>
@@ -445,8 +437,7 @@
 							<div class="form-group">
 								<label class="col-lg-8 col-form-label form-control-label">Mahonesa</label>
 								<div class="form-group col-md-4">
-									<select class="form-control" type="text" required="required"
-										th:field="${editarSandwich.mahonesa}">
+									<select class="form-control" type="text" th:field="${editarSandwich.mahonesa}">
 										<option th:value="${editarSandwich.mahonesa='Con Mahonesa'}">Con Mahonesa
 										</option>
 										<option th:value="${editarSandwich.mahonesa='Sin Mahonesa'}">Sin Mahonesa
@@ -458,8 +449,51 @@
 								</div>
 							</div>
 						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="col-lg-8 col-form-label form-control-label">Precio</label>
+								<div class="form-group col-md-4">
+									<input class="form-control" type="text" th:field="${editarSandwich.precio}">
+									<div class="alert-danger" th:if="${#fields.hasErrors('precio')}"
+										th:errors="*{precio}">
+										Name Error</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="col-lg-6 col-form-label form-control-label" for="img">Imagen</label>
+								<div class="form-group col-md-16">
+									<input class="form-control" type="file" id="img" name="img"
+										th:value="${editarSandwich.imagen}">
+									<div class="alert-danger" th:if="${#fields.hasErrors('imagen')}"
+										th:errors="*{imagen}">
+										Name
+										Error</div>
+
+								</div>
+							</div>
+						</div>
 					</div>
-					
+
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="col-lg-6 col-form-label form-control-label">Descripcion</label>
+								<div class="form-group col-md-24">
+									<textarea class="form-control" type="text" th:field="${editarSandwich.descripcion}" rows="3"></textarea>
+									<div class="alert-danger" th:if="${#fields.hasErrors('descripcion')}"
+										th:errors="*{descripcion}">
+										Name
+										Error</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
 					<div class="text-center">
 						<input type="submit" class="btn bg-gradient-warning btn-sm btn-rounded w-10"
 							style="float: center;" value="editar">

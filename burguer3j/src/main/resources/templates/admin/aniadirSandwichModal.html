@@ -15,7 +15,7 @@
 						</div>
 						<lass="card-body">
 							<form role="form text-left" th:action="@{/nuevoSandwich}" th:object="${nuevoSandwich}"
-								method="post">
+								method="post" enctype="multipart/form-data">
 
 								<input class="form-control" type=hidden th:field="${nuevoSandwich.id}">
 
@@ -203,8 +203,46 @@
 													th:errors="*{mahonesa}">Name Error</div>
 											</div>
 										</div>
+									</div>									
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label">Precio</label>
+											<div class="form-group col-md-8">
+												<input class="form-control" type="text" required="required"
+													th:field="${nuevoSandwich.precio}">
+												<div class="alert-danger" th:if="${#fields.hasErrors('precio')}"
+													th:errors="${precio}">Name Error</div>
+											</div>
+										</div>
 									</div>
 								</div>
+
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-10 col-form-label form-control-label">Descripcion</label>
+											<div class="form-group col-md-24">
+												<textarea class="form-control" type="text" required="required" 
+												th:field="${nuevoSandwich.descripcion}" rows="3"></textarea>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label"
+												for="img">Imagen</label>
+											<div class="form-group col-md-50">
+												<input class="form-control" type="file" id="img" name="img"
+													th:value="${nuevoSandwich.imagen}">
+												<div class="alert-danger" th:if="${#fields.hasErrors('imagen')}"
+													th:errors="${imagen}">Name Error</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
 
 								</p>
 								</p>

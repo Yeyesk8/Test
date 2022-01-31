@@ -3,9 +3,7 @@ package com.webburguer.burguer3j.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
-
 import com.webburguer.burguer3j.Exception.SandwichNameOrIdNotFound;
 import com.webburguer.burguer3j.entity.Sandwich;
 import com.webburguer.burguer3j.repository.SandwichRepository;
@@ -53,7 +51,6 @@ public class SandwichServiceImpl implements SandwichService {
 	}
 
 	protected void mapSandwich(Sandwich from, Sandwich to) {
-		to.setId(from.getId());
 		to.setName(from.getName());
 		to.setGluten(from.getGluten());
 		to.setBacon(from.getBacon());
@@ -64,12 +61,20 @@ public class SandwichServiceImpl implements SandwichService {
 		to.setTipo_queso(from.getTipo_queso());
 		to.setYork(from.getYork());
 		to.setMahonesa(from.getMahonesa());
+		to.setPrecio(from.getPrecio());
+		to.setDescripcion(from.getDescripcion());
+		to.setImagen(from.getImagen());
 	}
 
 	@Override
 	public void borrarSandwich(Long id) throws SandwichNameOrIdNotFound {
 		Sandwich sandwich = getSandwichById(id);
 		sarepository.delete(sandwich);
+	}
+
+	@Override
+	public Optional<Sandwich> get(Long id) {
+		return sarepository.findById(id);
 	}
 
 
