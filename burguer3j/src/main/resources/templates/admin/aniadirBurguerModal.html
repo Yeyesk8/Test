@@ -229,17 +229,21 @@
 								<div class="row">
 									<div class="col-md-4">
 										<div class="form-group">
-											<label class="col-lg-10 col-form-label form-control-label">Descripcion</label>
+											<label
+												class="col-lg-10 col-form-label form-control-label">Descripcion</label>
 											<div class="form-group col-md-24">
-												<textarea class="form-control" type="text" required="required"											
+												<textarea class="form-control" type="text" required="required"
 													th:field="${nuevaBurguer.descripcion}" rows="3"></textarea>
+												<div class="alert-danger" th:if="${#fields.hasErrors('descripcion')}"
+													th:errors="${descripcion}">Name Error</div>
 											</div>
 										</div>
 									</div>
-						
+
 									<div class="col-md-4">
 										<div class="form-group">
-											<label class="col-lg-6 col-form-label form-control-label" for="img">Imagen</label>
+											<label class="col-lg-6 col-form-label form-control-label"
+												for="img">Imagen</label>
 											<div class="form-group col-md-50">
 												<input class="form-control" type="file" id="img" name="img"
 													th:value="${nuevaBurguer.imagen}">

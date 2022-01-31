@@ -43,6 +43,19 @@ public class Bebida implements Serializable {
 	@NotBlank
 	@Column
 	private String tipo_vaso;
+	
+	@NotBlank
+	@Column
+	private String descripcion;
+	
+	@NotBlank
+	@Column
+	private String imagen;
+	
+	@NotBlank
+	@Column
+	private double precio;
+
 
 	
 	
@@ -86,15 +99,41 @@ public class Bebida implements Serializable {
 	public void setTipo_vaso(String tipo_vaso) {
 		this.tipo_vaso = tipo_vaso;
 	}
+	
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
 
 	@Override
 	public String toString() {
-		return "Bebida [id=" + id + ", name=" + name + ", alcohol=" + alcohol + ", tipo_vaso=" + tipo_vaso + "]";
+		return "Bebida [id=" + id + ", name=" + name + ", alcohol=" + alcohol + ", tipo_vaso=" + tipo_vaso
+				+ ", descripcion=" + descripcion + ", imagen=" + imagen + ", precio=" + precio + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(alcohol, id, name, tipo_vaso);
+		return Objects.hash(alcohol, descripcion, id, imagen, name, precio, tipo_vaso);
 	}
 
 	@Override
@@ -106,11 +145,12 @@ public class Bebida implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Bebida other = (Bebida) obj;
-		return Objects.equals(alcohol, other.alcohol) && Objects.equals(id, other.id)
-				&& Objects.equals(name, other.name) && Objects.equals(tipo_vaso, other.tipo_vaso);
+		return Objects.equals(alcohol, other.alcohol) && Objects.equals(descripcion, other.descripcion)
+				&& Objects.equals(id, other.id) && Objects.equals(imagen, other.imagen)
+				&& Objects.equals(name, other.name)
+				&& Double.doubleToLongBits(precio) == Double.doubleToLongBits(other.precio)
+				&& Objects.equals(tipo_vaso, other.tipo_vaso);
 	}
 
-
 	
-
 }

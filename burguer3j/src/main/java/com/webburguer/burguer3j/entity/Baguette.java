@@ -51,6 +51,18 @@ public class Baguette implements Serializable {
 	@Column
 	private String mahonesa;
 	
+	@NotBlank
+	@Column
+	private String descripcion;
+	
+	@NotBlank
+	@Column
+	private String imagen;
+	
+	@NotBlank
+	@Column
+	private double precio;
+	
 	public Baguette() {
 		super();
 	}
@@ -116,16 +128,42 @@ public class Baguette implements Serializable {
 	public void setMahonesa(String mahonesa) {
 		this.mahonesa = mahonesa;
 	}
+	
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
 
 	@Override
 	public String toString() {
 		return "Baguette [id=" + id + ", name=" + name + ", contenido=" + contenido + ", tipo_queso=" + tipo_queso
-				+ ", lechuga=" + lechuga + ", tomate=" + tomate + ", mahonesa=" + mahonesa + "]";
+				+ ", lechuga=" + lechuga + ", tomate=" + tomate + ", mahonesa=" + mahonesa + ", descripcion="
+				+ descripcion + ", imagen=" + imagen + ", precio=" + precio + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(contenido, id, lechuga, mahonesa, name, tipo_queso, tomate);
+		return Objects.hash(contenido, descripcion, id, imagen, lechuga, mahonesa, name, precio, tipo_queso, tomate);
 	}
 
 	@Override
@@ -137,17 +175,13 @@ public class Baguette implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Baguette other = (Baguette) obj;
-		return Objects.equals(contenido, other.contenido) && Objects.equals(id, other.id)
+		return Objects.equals(contenido, other.contenido) && Objects.equals(descripcion, other.descripcion)
+				&& Objects.equals(id, other.id) && Objects.equals(imagen, other.imagen)
 				&& Objects.equals(lechuga, other.lechuga) && Objects.equals(mahonesa, other.mahonesa)
-				&& Objects.equals(name, other.name) && Objects.equals(tipo_queso, other.tipo_queso)
-				&& Objects.equals(tomate, other.tomate);
+				&& Objects.equals(name, other.name)
+				&& Double.doubleToLongBits(precio) == Double.doubleToLongBits(other.precio)
+				&& Objects.equals(tipo_queso, other.tipo_queso) && Objects.equals(tomate, other.tomate);
 	}
 
 	
-
-	
-
-
-	
-
 }

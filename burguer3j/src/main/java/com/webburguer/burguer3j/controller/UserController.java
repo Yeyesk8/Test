@@ -23,7 +23,10 @@ import com.webburguer.burguer3j.entity.Role;
 import com.webburguer.burguer3j.entity.Sugerencias;
 import com.webburguer.burguer3j.entity.User;
 import com.webburguer.burguer3j.repository.RoleRepository;
+import com.webburguer.burguer3j.service.BaguetteService;
+import com.webburguer.burguer3j.service.BebidaService;
 import com.webburguer.burguer3j.service.BurguerService;
+import com.webburguer.burguer3j.service.PatataService;
 import com.webburguer.burguer3j.service.SandwichService;
 import com.webburguer.burguer3j.service.SugerenciasService;
 import com.webburguer.burguer3j.service.UserService;
@@ -39,7 +42,16 @@ public class UserController {
 	
 	@Autowired
 	SandwichService sandwichservice;
-
+	
+	@Autowired
+	BaguetteService baguetteservice;
+	
+	@Autowired
+	PatataService patataservice;
+	
+	@Autowired
+	BebidaService bebidaservice;
+	
 	@Autowired
 	SugerenciasService sugerenciasService;
 
@@ -48,11 +60,12 @@ public class UserController {
 
 	@GetMapping({ "/", "/inicio" })
 	public String index(Model model) {
-		model.addAttribute("burguerList", burguerservice.getAllBurguers());
-
-		model.addAttribute("sandwichList", sandwichservice.getAllSandwiches());
-
 		
+		model.addAttribute("burguerList", burguerservice.getAllBurguers());
+		model.addAttribute("sandwichList", sandwichservice.getAllSandwiches());
+		model.addAttribute("baguetteList", baguetteservice.getAllBaguettes());
+		model.addAttribute("patataList",patataservice.getAllPatatas());
+		model.addAttribute("bebidaList",bebidaservice.getAllBebidas());
 
 		return "index";
 	}

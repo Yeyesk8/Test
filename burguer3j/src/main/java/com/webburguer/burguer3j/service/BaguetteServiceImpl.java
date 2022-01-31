@@ -58,12 +58,21 @@ public class BaguetteServiceImpl implements BaguetteService {
 		to.setLechuga(from.getLechuga());
 		to.setTomate(from.getTomate());
 		to.setMahonesa(from.getMahonesa());
+		to.setPrecio(from.getPrecio());
+		to.setDescripcion(from.getDescripcion());
+		to.setImagen(from.getImagen());
 	}
 
 	@Override
 	public void borrarBaguette(Long id) throws BaguetteNameOrIdNotFound {
 		Baguette baguette = getBaguetteById(id);
 		barepository.delete(baguette);
+	}
+
+	@Override
+	public Optional<Baguette> get(Long id) {
+		
+		return barepository.findById(id);	
 	}
 
 

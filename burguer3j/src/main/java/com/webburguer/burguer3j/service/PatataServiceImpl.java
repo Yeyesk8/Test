@@ -57,12 +57,22 @@ public class PatataServiceImpl implements PatataService {
 		to.setName(from.getName());
 		to.setGluten(from.getGluten());
 		to.setTamanio_plato(from.getTamanio_plato());
+		to.setPrecio(from.getPrecio());
+		to.setDescripcion(from.getDescripcion());
+		to.setImagen(from.getImagen());
+		
 	}
 
 	@Override
 	public void borrarPatata(Long id) throws PatataNameOrIdNotFound {
 		Patata patata = getPatataById(id);
 		parepository.delete(patata);
+	}
+
+	@Override
+	public Optional<Patata> get(Long id) {
+		
+		return parepository.findById(id);
 	}
 
 

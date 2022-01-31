@@ -275,7 +275,7 @@
 	<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
 		<div class="container-fluid" id="editarbebida">
 			<div class="page-header min-height-200 border-radius-xl mt-4"
-				style="background-image: url('/img/Fondo.png'); background-position-y: 50%;">
+				style="background-image: url('/img/Fondo5.jpg'); background-position-y: 50%;">
 				<span class="mask bg-gradient-danger opacity-6"></span>
 			</div>
 
@@ -285,7 +285,7 @@
 
 			<div class="card">
 				<form class="form" role="form" autocomplete="off" th:object="${editarBebida}"
-					th:action="@{/editarBebida}" method="post">
+					th:action="@{/editarBebida}" method="post" enctype="multipart/form-data">
 
 					<input class="form-control" type=hidden th:field="${editarBebida.id}">
 
@@ -337,6 +337,47 @@
 									</select>
 									<div class="alert-danger" th:if="${#fields.hasErrors('tipo_vaso')}"
 										th:errors="*{tipo_vaso}">Name Error</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="col-lg-6 col-form-label form-control-label">Precio</label>
+								<div class="form-group col-md-4">
+									<input class="form-control" type="text" th:field="${editarBebida.precio}">
+									<div class="alert-danger" th:if="${#fields.hasErrors('precio')}"
+										th:errors="*{precio}">
+										Name Error</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="col-lg-6 col-form-label form-control-label">Descripcion</label>
+								<div class="form-group col-md-24">
+									<textarea class="form-control" type="text" th:field="${editarBebida.descripcion}" rows="3"></textarea>
+									<div class="alert-danger" th:if="${#fields.hasErrors('descripcion')}"
+										th:errors="*{descripcion}">
+										Name Error</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="col-lg-6 col-form-label form-control-label" for="img">Imagen</label>
+								<div class="form-group col-md-24">
+									<input class="form-control" type="file" id="img" name="img"
+										th:value="${editarBebida.imagen}">
+									<div class="alert-danger" th:if="${#fields.hasErrors('imagen')}"
+										th:errors="*{imagen}">
+										Name
+										Error</div>
+
 								</div>
 							</div>
 						</div>

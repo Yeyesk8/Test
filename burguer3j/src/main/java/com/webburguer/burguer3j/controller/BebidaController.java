@@ -3,6 +3,8 @@
 
 package com.webburguer.burguer3j.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -15,24 +17,32 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
 import com.webburguer.burguer3j.Exception.BebidaNameOrIdNotFound;
-import com.webburguer.burguer3j.Exception.BurguerNameOrIdNotFound;
 import com.webburguer.burguer3j.entity.Bebida;
-import com.webburguer.burguer3j.entity.Burguer;
+import com.webburguer.burguer3j.entity.Patata;
 import com.webburguer.burguer3j.service.BebidaService;
+import com.webburguer.burguer3j.service.UploadFileService;
 
 
 
 @Controller
 public class BebidaController {
+	
+	private final Logger LOGGER = LoggerFactory.getLogger(BebidaController.class);
 
 	@Autowired
 	BebidaService bebidaservice;
+	
+	@Autowired
+	private UploadFileService upload;
 	
 	@GetMapping({"/bebidas"})
 	public String inicio(Model model) {	
@@ -60,7 +70,7 @@ public class BebidaController {
 	}
 	
 	@PostMapping("/nuevaBebida")
-	public String crearBebida(@Valid @ModelAttribute("nuevaBebida") Bebida bebida, BindingResult result, ModelMap model) {
+	public String crearBebida(@Valid @ModelAttribute("nuevaBebida") Bebida bebida, @RequestParam("img") MultipartFile file, BindingResult result, ModelMap model) throws IOException {
 		
 		if (result.hasErrors()) {
 			model.addAttribute("nuevaBebida", bebida);
@@ -68,6 +78,12 @@ public class BebidaController {
 			
 		} else {
 			try {
+				if (bebida.getId() == null) { // cuando se crea una bebida
+					String nombreImagen = upload.saveImage(file);
+					bebida.setImagen(nombreImagen);
+				} else {
+
+				}
 				bebidaservice.createBebida(bebida);
 				model.addAttribute("nuevaBebida", new Bebida());
 
@@ -90,11 +106,26 @@ public class BebidaController {
 	}
 
 	@PostMapping("/editarBebida")
-	public String posteditarBebida(@Valid @ModelAttribute("editarbebida") Bebida bebida, BindingResult result, ModelMap model) {
+	public String posteditarBebida(@Valid @ModelAttribute("editarbebida") Bebida bebida, @RequestParam("img") MultipartFile file, BindingResult result, ModelMap model) throws IOException {
+		
+		Bebida be = new Bebida();
+		be = bebidaservice.get(bebida.getId()).get();
 		
 		if (result.hasErrors()) {
 			model.addAttribute("editarbebida", bebida);
+			
 		} else {
+			if (file.isEmpty()) { // editamos la bebida pero no cambiamos la imagen
+
+				bebida.setImagen(be.getImagen());
+			} else {// cuando se edita tambien la imagen
+					// se elimina cuando no sea la imagen por defecto y se actualiza a la nueva
+				if (!be.getImagen().equals("defecto.jpg")) {
+					upload.deleteImage(be.getImagen());
+				}
+				String nombreImagen = upload.saveImage(file);
+				bebida.setImagen(nombreImagen);
+			}
 			try {
 				bebidaservice.updateBebida(bebida);
 			} catch (Exception e) {

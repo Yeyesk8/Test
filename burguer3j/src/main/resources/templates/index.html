@@ -678,8 +678,24 @@
 		</p>
 		</p>
 		</p>
+		
+		<div class="row text-center">
 
-		<div class="col-md-auto">
+			<div class="col-lg-3 col-md-6 mb-4" th:each="baguette: ${baguetteList}">
+				<div class="card h-100">
+					<img class="card-img-top" th:src="@{/images/{img} (img=${baguette.imagen})} " alt="">
+					<div class="card-body">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Baguette</span>
+						<p class="card-title h5 d-block text-darker" th:text="${baguette.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ baguette.precio +'€'}"></p>
+						<p class="card-description mb-4" th:text="${baguette.descripcion}"> </p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!--<div class="col-md-auto">
 			<div class="card-group">
 				<div class="card">
 					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
@@ -808,7 +824,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
+		
 	</div>
 
 	</p>
@@ -826,8 +843,24 @@
 		</p>
 		</p>
 		</p>
+		
+		<div class="row text-center">
 
-		<div class="col-md-auto">
+			<div class="col-lg-3 col-md-6 mb-4" th:each="patata: ${patataList}">
+				<div class="card h-100">
+					<img class="card-img-top" th:src="@{/images/{img} (img=${patata.imagen})} " alt="">
+					<div class="card-body">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Patatas</span>
+						<p class="card-title h5 d-block text-darker" th:text="${patata.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ patata.precio +'€'}"></p>
+						<p class="card-description mb-4" th:text="${patata.descripcion}"> </p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!--<div class="col-md-auto">
 			<div class="card-group">
 				<div class="card">
 					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
@@ -896,7 +929,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 	</div>
 
 	</p>
@@ -914,9 +947,25 @@
 		</p>
 		</p>
 		</p>
+		
+		<div class="row text-center">
+
+			<div class="col-lg-3 col-md-6 mb-4" th:each="bebida: ${bebidaList}">
+				<div class="card h-100">
+					<img class="card-img-top" th:src="@{/images/{img} (img=${bebida.imagen})} " alt="">
+					<div class="card-body">
+						<span
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Patatas</span>
+						<p class="card-title h5 d-block text-darker" th:text="${bebida.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ bebida.precio +'€'}"></p>
+						<p class="card-description mb-4" th:text="${bebida.descripcion}"> </p>
+					</div>
+				</div>
+			</div>
+
+		</div>
 
 
-		<div class="col-md-auto">
+		<!--<div class="col-md-auto">
 			<div class="card-group">
 				<div class="card">
 					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
@@ -1043,7 +1092,8 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>-->
+			
 		</div>
 
 		<!--

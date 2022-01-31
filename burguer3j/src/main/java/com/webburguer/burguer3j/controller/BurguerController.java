@@ -99,7 +99,7 @@ public class BurguerController {
 	}
 
 	@PostMapping("/editarBurguer")
-	public String postEditarBurguer(@Valid @ModelAttribute("editarburguer") Burguer burguer,@RequestParam("img") MultipartFile file, BindingResult result, ModelMap model) throws IOException {
+	public String postEditarBurguer(@Valid @ModelAttribute("editarburguer") Burguer burguer, @RequestParam("img") MultipartFile file, BindingResult result, ModelMap model) throws IOException {
 		
 		Burguer b = new Burguer();
 		b=burguerservice.get(burguer.getId()).get();

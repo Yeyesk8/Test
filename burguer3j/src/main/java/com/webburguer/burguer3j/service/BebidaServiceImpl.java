@@ -57,12 +57,20 @@ public class BebidaServiceImpl implements BebidaService {
 		to.setName(from.getName());
 		to.setAlcohol(from.getAlcohol());
 		to.setTipo_vaso(from.getTipo_vaso());
+		to.setPrecio(from.getPrecio());
+		to.setDescripcion(from.getDescripcion());
+		to.setImagen(from.getImagen());
 	}
 
 	@Override
 	public void borrarBebida(Long id) throws BebidaNameOrIdNotFound {
 		Bebida bebida = getBebidaById(id);
 		berepository.delete(bebida);
+	}
+
+	@Override
+	public Optional<Bebida> get(Long id) {
+		return berepository.findById(id);
 	}
 
 
