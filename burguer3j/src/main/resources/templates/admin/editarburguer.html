@@ -1,3 +1,4 @@
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -273,7 +274,7 @@
 	<!-- Pagina Editar Burguer -->
 
 	<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-		<div class="container-fluid" id="hamburguesas">
+		<div class="container-fluid" id="editarburguer">
 			<div class="page-header min-height-200 border-radius-xl mt-4"
 				style="background-image: url('/img/Fondo.jpg'); background-position-y: 50%;">
 				<span class="mask bg-gradient-danger opacity-6"></span>
@@ -496,7 +497,7 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label class="col-lg-6 col-form-label form-control-label" for="img">Imagen</label>
-								<div class="form-group col-md-50">
+								<div class="form-group col-md-24">
 									<input class="form-control" type="file" id="img" name="img"
 										th:value="${editarBurguer.imagen}">
 									<div class="alert-danger" th:if="${#fields.hasErrors('imagen')}"

@@ -76,8 +76,8 @@ public class BurguerServiceImpl implements BurguerService {
 
 	@Override
 	public Optional<Burguer> get(Long id) {
+		
 		return brepository.findById(id);
-
 	}
 
 }

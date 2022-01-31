@@ -16,7 +16,7 @@
 						</div>
 						<div class="card-body">
 							<form role="form text-left" th:action="@{/nuevaPatata}" th:object="${nuevaPatata}"
-								method="post">
+								method="post" enctype="multipart/form-data">
 
 								<input class="form-control" type=hidden th:field="${nuevaPatata.id}">
 
@@ -64,6 +64,45 @@
 												</select>
 												<div class="alert-danger" th:if="${#fields.hasErrors('tamanio_plato')}"
 													th:errors="${tamanio_plato}">Name Error</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label">Precio</label>
+											<div class="form-group col-md-8">
+												<input class="form-control" type="text" required="required"
+													th:field="${nuevaPatata.precio}">
+												<div class="alert-danger" th:if="${#fields.hasErrors('precio')}"
+													th:errors="${precio}">Name Error</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-6 col-form-label form-control-label"
+												for="img">Imagen</label>
+											<div class="form-group col-md-24">
+												<input class="form-control" type="file" id="img" name="img"
+													th:value="${nuevaPatata.imagen}">
+												<div class="alert-danger" th:if="${#fields.hasErrors('imagen')}"
+													th:errors="${imagen}">Name Error</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-lg-10 col-form-label form-control-label">Descripcion</label>
+											<div class="form-group col-md-24">
+												<textarea class="form-control" type="text" required="required"
+													th:field="${nuevaPatata.descripcion}" rows="3"></textarea>
+												<div class="alert-danger" th:if="${#fields.hasErrors('descripcion')}"
+													th:errors="${descripcion}">Name Error</div>
 											</div>
 										</div>
 									</div>

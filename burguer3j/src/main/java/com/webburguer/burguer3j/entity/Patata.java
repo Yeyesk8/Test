@@ -37,6 +37,18 @@ public class Patata implements Serializable {
 	@Column
 	@NotBlank
 	private String tamanio_plato;
+	
+	@NotBlank
+	@Column
+	private String descripcion;
+	
+	@NotBlank
+	@Column
+	private String imagen;
+	
+	@NotBlank
+	@Column
+	private double precio;
 
 
 	
@@ -80,15 +92,42 @@ public class Patata implements Serializable {
 	public void setTamanio_plato(String tamanio_plato) {
 		this.tamanio_plato = tamanio_plato;
 	}
+	
+	
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
 
 	@Override
 	public String toString() {
-		return "Patata [id=" + id + ", name=" + name + ", gluten=" + gluten + ", tamanio_plato=" + tamanio_plato + "]";
+		return "Patata [id=" + id + ", name=" + name + ", gluten=" + gluten + ", tamanio_plato=" + tamanio_plato
+				+ ", descripcion=" + descripcion + ", imagen=" + imagen + ", precio=" + precio + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(gluten, id, name, tamanio_plato);
+		return Objects.hash(descripcion, gluten, id, imagen, name, precio, tamanio_plato);
 	}
 
 	@Override
@@ -100,13 +139,12 @@ public class Patata implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Patata other = (Patata) obj;
-		return Objects.equals(gluten, other.gluten) && Objects.equals(id, other.id) && Objects.equals(name, other.name)
+		return Objects.equals(descripcion, other.descripcion) && Objects.equals(gluten, other.gluten)
+				&& Objects.equals(id, other.id) && Objects.equals(imagen, other.imagen)
+				&& Objects.equals(name, other.name)
+				&& Double.doubleToLongBits(precio) == Double.doubleToLongBits(other.precio)
 				&& Objects.equals(tamanio_plato, other.tamanio_plato);
 	}
 
 	
-
-	
-	
-
 }

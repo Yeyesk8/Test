@@ -272,9 +272,9 @@
 	<!-- Pagina  Editar Baguette -->
 
 	<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-		<div class="container-fluid" id="hamburguesas">
-			<div class="page-header min-height-300 border-radius-xl mt-4"
-				style="background-image: url('/img/Fondo.jpg'); background-position-y: 50%;">
+		<div class="container-fluid" id="editarbaguette">
+			<div class="page-header min-height-200 border-radius-xl mt-4"
+				style="background-image: url('/img/Fondo3.jpg'); background-position-y: 50%;">
 				<span class="mask bg-gradient-danger opacity-6"></span>
 			</div>
 
@@ -284,7 +284,7 @@
 
 			<div class="card">
 				<form class="form" role="form" autocomplete="off" th:object="${editarBaguette}"
-					th:action="@{/editarBaguette}" method="post">
+					th:action="@{/editarBaguette}" method="post" enctype="multipart/form-data">
 
 					<input class="form-control" type=hidden th:field="${editarBaguette.id}">
 
@@ -385,6 +385,47 @@
 									<div class="alert-danger" th:if="${#fields.hasErrors('mahonesa')}"
 										th:errors="*{mahonesa}">
 										Name Error</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="col-lg-6 col-form-label form-control-label">Precio</label>
+								<div class="form-group col-md-4">
+									<input class="form-control" type="text" th:field="${editarBaguette.precio}">
+									<div class="alert-danger" th:if="${#fields.hasErrors('precio')}"
+										th:errors="*{precio}">
+										Name Error</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="col-lg-6 col-form-label form-control-label">Descripcion</label>
+								<div class="form-group col-md-24">
+									<textarea class="form-control" type="text" th:field="${editarBaguette.descripcion}" rows="3"></textarea>
+									<div class="alert-danger" th:if="${#fields.hasErrors('descripcion')}"
+										th:errors="*{descripcion}">
+										Name Error</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="col-lg-6 col-form-label form-control-label" for="img">Imagen</label>
+								<div class="form-group col-md-24">
+									<input class="form-control" type="file" id="img" name="img"
+										th:value="${editarBaguette.imagen}">
+									<div class="alert-danger" th:if="${#fields.hasErrors('imagen')}"
+										th:errors="*{imagen}">
+										Name
+										Error</div>
+
 								</div>
 							</div>
 						</div>
