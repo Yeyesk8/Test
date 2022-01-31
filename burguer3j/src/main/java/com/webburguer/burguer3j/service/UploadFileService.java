@@ -21,7 +21,11 @@ public class UploadFileService {
 			Files.write(path, bytes);
 			return file.getOriginalFilename();
 		}
+<<<<<<< HEAD
 		return "defecto.jpg";
+=======
+		return "normal.jpg";
+>>>>>>> branch 'master' of git@github.com:Yeyesk8/TFG.git
 	}
 	
 	public void deleteImage(String nombre) {
