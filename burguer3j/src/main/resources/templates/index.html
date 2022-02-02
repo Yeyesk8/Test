@@ -177,11 +177,9 @@
 								</li>
 
 								<li class="nav-item mx-2">
-									<a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
-										data-bs-toggle="modal" data-bs-target="#modal-form2" data-bs-placement="bottom"
-										href="#sugerencia">
-										<div
-											class="icon icon-shape icon-xs border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
+									<a  class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
+										data-bs-toggle="modal" data-bs-target="#aniadirSugerenciaModal" data-bs-placement="bottom" href="#registrarsugerencia">
+										<div class="icon icon-shape icon-xs border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
 											<svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
 												xmlns="http://www.w3.org/2000/svg"
 												xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -210,7 +208,7 @@
 										</div>
 										Contacto
 										<img src="">
-									</a>
+									</a >
 
 								</li>
 
@@ -372,139 +370,18 @@
 					<div class="card-body">
 						<span
 							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Hamburguesa</span>
-						<p class="card-title h5 d-block text-darker" th:text="${burguer.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ burguer.precio +'€'}"></p>
+						<p class="card-title h5 d-block text-darker"
+							th:text="${burguer.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ burguer.precio +'€'}"></p>
 						<p class="card-description mb-4" th:text="${burguer.descripcion}"> </p>
 					</div>
+					<div class="card-footer">
+						<a th:href="@{/burguerInfo/{id}  (id=${burguer.id})  }" class="btn btn-success">Ver
+							Burguer</a>
+					</div>
 				</div>
 			</div>
 
 		</div>
-
-
-		<!--<div class="card">
-			<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-				<a href="javascript:;" class="d-block">
-					<img src="static/img/hamburguesas/completa.jpg" th:src="@{/img/hamburguesas/completa.jpg}"
-						class="img-fluid border-radius-lg">
-				</a>
-			</div>
-
-			<div class="card-body pt-2">
-				<span class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Hamburguesa</span>
-				<a href="javascript:;" class="card-title h5 d-block text-darker">
-					La Completa
-				</a>
-				<p class="card-description mb-4">
-					Hamburguesa Con Carne de Vacuno o Pollo, Huevo de Gallina Campera, Queso Cheddar,
-					York,
-					Bacon, Lechuga, Cebolla y Tomate de la huerta.
-				</p>
-				<div class="author align-items-center">
-					<div class="name ps-3">
-						<span>
-							<font size="4">5,30</font>
-						</span>
-						<i class="fas fa-euro-sign"></i>
-						<div class="stats">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/hamburguesas/queso-york-bacon.jpg"
-								th:src="@{/img/hamburguesas/queso-york-bacon.jpg}" class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Hamburguesa</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							Queso,York y Bacon
-						</a>
-						<p class="card-description mb-4">
-							Hamburguesa Con Carne de Vacuno o Pollo, Queso Cheddar, York, Bacon, Lechuga,
-							Cebolla y
-							Tomate de la huerta.
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">4,90</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/hamburguesas/normal.jpg" th:src="@{/img/hamburguesas/normal.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Hamburguesa</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							Esa, Esa, Esa
-						</a>
-						<p class="card-description mb-4">
-							Hamburguesa Con Carne de Vacuno o Pollo, Lechuga, Cebolla y Tomate de la huerta.
-							La Hamburguesa Normal de toda la vida.
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">4,40</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/hamburguesas/queso.jpg" th:src="@{/img/hamburguesas/queso.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Hamburguesa</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							Con Queso
-						</a>
-						<p class="card-description mb-4">
-							Hamburguesa Con Carne de Vacuno o Pollo, Queso Cheddar y Lechuga, Cebolla y Tomate
-							de la
-							huerta.
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">4,70</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>-->
 	</div>
 	</p>
 	</p>
@@ -521,7 +398,7 @@
 		</p>
 		</p>
 		</p>
-		
+
 		<div class="row text-center">
 
 			<div class="col-lg-3 col-md-6 mb-4" th:each="sandwich: ${sandwichList}">
@@ -530,140 +407,14 @@
 					<div class="card-body">
 						<span
 							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Sandwich</span>
-						<p class="card-title h5 d-block text-darker" th:text="${sandwich.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ sandwich.precio +'€'}"></p>
+						<p class="card-title h5 d-block text-darker"
+							th:text="${sandwich.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ sandwich.precio +'€'}"></p>
 						<p class="card-description mb-4" th:text="${sandwich.descripcion}"> </p>
 					</div>
 				</div>
 			</div>
-
 		</div>
-
-		<!--<div class="col-md-auto">
-			<div class="card-group">
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/sandwiches/completo.jpg" th:src="@{/img/sandwiches/completo.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Sandwich</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							El Completo
-						</a>
-						<p class="card-description mb-4">
-							Sandwich doble piso Con Huevo de Gallina Campera, Queso Cheddar, York, Esparragos,
-							Lechuga y Tomate de la huerta, todo ello acompañado de salsa mahonesa.
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">5,20</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/sandwiches/vegetal.jpg" th:src="@{/img/sandwiches/vegetal.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Sandwich</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							El Vegetal
-						</a>
-						<p class="card-description mb-4">
-							Para los amantes del Vegetal Sandwich Con deliciosos esparragos, Lechuga, Cebolla y
-							Tomate de la huerta acompañado de salsa mahonesa .
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">3,80</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/sandwiches/mixto.jpg" th:src="@{/img/sandwiches/mixto.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Sandwich</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							Mixto
-						</a>
-						<p class="card-description mb-4">
-							El Sandwich de Siempre. Queso Cheddar fundido y york.
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">2,80</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/sandwiches/mixtobh.jpg" th:src="@{/img/sandwiches/mixtobh.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Sandwich</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							Mixto Bacon Y Huevo
-						</a>
-						<p class="card-description mb-4">
-							Si al Sandwich de Siempre le añades Bacon y Huevo se convierte en Excelente.Queso
-							Cheddar fundido y york acompañado de Bacon y huevo de Gallina Campera.
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">4,90</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>-->
-		
 	</div>
-
 	</p>
 	</p>
 
@@ -678,7 +429,7 @@
 		</p>
 		</p>
 		</p>
-		
+
 		<div class="row text-center">
 
 			<div class="col-lg-3 col-md-6 mb-4" th:each="baguette: ${baguetteList}">
@@ -687,147 +438,14 @@
 					<div class="card-body">
 						<span
 							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Baguette</span>
-						<p class="card-title h5 d-block text-darker" th:text="${baguette.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ baguette.precio +'€'}"></p>
+						<p class="card-title h5 d-block text-darker"
+							th:text="${baguette.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ baguette.precio +'€'}"></p>
 						<p class="card-description mb-4" th:text="${baguette.descripcion}"> </p>
 					</div>
 				</div>
 			</div>
-
 		</div>
-
-		<!--<div class="col-md-auto">
-			<div class="card-group">
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/baguettes/bacon-queso.jpg" th:src="@{/img/baguettes/bacon-queso.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Baguette</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							Bacon Queso
-						</a>
-						<p class="card-description mb-4">
-							Delicioso Bocadillo de Bacon y Queso Cheddar en pan de Baguette recien hecha
-							al horno.
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">4,70</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/baguettes/lomo-tomate.jpg" th:src="@{/img/baguettes/lomo-tomate.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Baguette</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							Lomo con Tomate
-						</a>
-						<p class="card-description mb-4">
-							Delicioso Bocadillo de Lomo adobado y Tomate de la huerta en pan de Baguette
-							recien hecha al horno.
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">4,80</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-				</p>
-				</p>
-				</p>
-
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/baguettes/chorizo.jpg" th:src="@{/img/baguettes/chorizo.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Baguette</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							Chorizo
-						</a>
-						<p class="card-description mb-4">
-							Para los amantes del mundo Rural,Delicioso Bocadillo de Chorizo casero a la
-							plancha en pan de Baguette recien hecha al horno.
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">4,20</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/baguettes/salmon-tomate.jpg"
-								th:src="@{/img/baguettes/salmon-tomate.jpg}" class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Baguette</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							Salmon con Tomate
-						</a>
-						<p class="card-description mb-4">
-							Delicioso Bocadillo de Salmon Ahumado con Tomate de la huerta en pan de
-							Baguette recien hecha al horno.
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">5,20</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>-->
-		
 	</div>
-
 	</p>
 	</p>
 
@@ -843,7 +461,7 @@
 		</p>
 		</p>
 		</p>
-		
+
 		<div class="row text-center">
 
 			<div class="col-lg-3 col-md-6 mb-4" th:each="patata: ${patataList}">
@@ -852,86 +470,14 @@
 					<div class="card-body">
 						<span
 							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Patatas</span>
-						<p class="card-title h5 d-block text-darker" th:text="${patata.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ patata.precio +'€'}"></p>
+						<p class="card-title h5 d-block text-darker"
+							th:text="${patata.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ patata.precio +'€'}"></p>
 						<p class="card-description mb-4" th:text="${patata.descripcion}"> </p>
 					</div>
 				</div>
 			</div>
-
 		</div>
-
-		<!--<div class="col-md-auto">
-			<div class="card-group">
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/patatas/pequeñas.jpg" th:src="@{/img/patatas/pequeñas.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Patatas</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							Pequeñas
-						</a>
-						<p class="card-description mb-4">
-							Las famosas patatas fritas de las que tanto has oído hablar, si
-							estás son, las mejores, las más crujientes, las que tienen más
-							sabor, si las pruebas entenderás el por qué de su fama.
-						</p>
-						Tamaño Del Plato: Pequeño
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">2,20</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/patatas/grandes.jpg" th:src="@{/img/patatas/grandes.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Patatas</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							Grandes
-						</a>
-						<p class="card-description mb-4">
-							Las famosas patatas fritas de las que tanto has oído hablar, si
-							estás son, las mejores, las más crujientes, las que tienen más
-							sabor, si las pruebas entenderás el por qué de su fama.
-						</p>
-						Tamaño Del Plato: Grande
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">3,20</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>-->
 	</div>
-
 	</p>
 	</p>
 
@@ -947,7 +493,7 @@
 		</p>
 		</p>
 		</p>
-		
+
 		<div class="row text-center">
 
 			<div class="col-lg-3 col-md-6 mb-4" th:each="bebida: ${bebidaList}">
@@ -956,148 +502,16 @@
 					<div class="card-body">
 						<span
 							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Patatas</span>
-						<p class="card-title h5 d-block text-darker" th:text="${bebida.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ bebida.precio +'€'}"></p>
+						<p class="card-title h5 d-block text-darker"
+							th:text="${bebida.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ bebida.precio +'€'}"></p>
 						<p class="card-description mb-4" th:text="${bebida.descripcion}"> </p>
 					</div>
 				</div>
 			</div>
-
 		</div>
+	</div>
 
-
-		<!--<div class="col-md-auto">
-			<div class="card-group">
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/bebidas/refrescos.jpg" th:src="@{/img/bebidas/refrescos.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Bebida</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							Refrescos
-						</a>
-						<p class="card-description mb-4">
-							Coca-Cola, Fanta de Naranja o Limón, Aquarius de Naranja o
-							Limón, Nestea, Zumos.
-							Para Acompañar junto a tu Hamburguesa preferida.
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">1,80</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/bebidas/Jarra.jpg" th:src="@{/img/bebidas/Jarra.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Bebida</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							Jarra de Cerveza
-						</a>
-						<p class="card-description mb-4">
-							Para los mas Cerveceros
-							Jarra Fria de Cerveza de 0,5L.
-							Ideal para acompañar junto a tu Hamburguesa preferida.
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">2,40</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/bebidas/Copa.jpg" th:src="@{/img/bebidas/Copa.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Bebida</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							Copa de Cerveza
-						</a>
-						<p class="card-description mb-4">
-							Para los mas Cerveceros
-							Copa Fria de Cerveza de 0,5L.
-							Ideal para acompañar junto a tu Hamburguesa preferida.
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">2,30</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/bebidas/vino.jpg" th:src="@{/img/bebidas/vino.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Bebida</span>
-						<a href="javascript:;" class="card-title h5 d-block text-darker">
-							Copa de Vino
-						</a>
-						<p class="card-description mb-4">
-							Para los amantes del Vino
-							Cune, Protos, Verdejo, Elegido, Marques de Riscal.
-							Ideal para acompañar junto a tu Hamburguesa preferida.
-						</p>
-						<div class="author align-items-center">
-							<div class="name ps-3">
-								<span>
-									<font size="4">2,00</font>
-								</span>
-								<i class="fas fa-euro-sign"></i>
-								<div class="stats">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>-->
-			
-		</div>
-
-		<!--
-
+<!--
 		<footer id="sugerencia">
 			<div class="page-header min-vh-85">
 				<div>
@@ -1179,9 +593,8 @@
 			</div>
 		</footer>-->
 
-	</div>
 
-	<div class="col-md-4" id="sugerencia">
+	<!--<div class="col-md-4" id="sugerencia">
 		<div class="modal fade" id="modal-form2" tabindex="-1" role="dialog" aria-labelledby="modal-form"
 			aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered modal-md" role="document">
@@ -1199,24 +612,20 @@
 								</p>
 							</div>
 							<div class="card-body">
-								<form th:action="@{/sugerencia}" method="post" role="form text-left">
+								<form th:action="@{/sugerencia}" th:object="${sugerencia}" method="post" role="form text-left">
 									<label class="col-lg-4 col-form-label form-control-label">Nombre y
 										Apellido</label>
 									<div class="input-group mb-3">
-										<input type="text" class="form-control" placeholder="Nombre y Apellido"
-											aria-label="usuario" aria-describedby="usuario-addon" name="fullname">
+										<input type="text" class="form-control" placeholder="Nombre y Apellido" th:field="*{sugerencia.fullname}">
 									</div>
 									<label class="col-lg-5 col-form-label form-control-label">E-mail</label>
 									<div class="input-group mb-3">
-										<input type="email" class="form-control" placeholder="E-mail" aria-label="email"
-											aria-describedby="email-addon" name="email">
+										<input type="email" class="form-control" placeholder="E-mail" th:field="${sugerencia.email}">
 									</div>
 									<div class="input-group mb-3">
-										<textarea type="text" class="form-control" placeholder="mensaje"
-											aria-label="mensaje" aria-describedby="mensaje-addon" name="mensaje">
+										<textarea type="text" class="form-control" placeholder="mensaje" th:field="${sugerencia.mensaje}">
 										</textarea>
 									</div>
-
 
 									<div class="text-center">
 										<button type="submit"
@@ -1230,7 +639,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>-->
 
 	<div class="col-md-4" id="alergenos">
 		<div class="modal fade" id="alergias" tabindex="-1" role="dialog" aria-labelledby="alergias" aria-hidden="true">

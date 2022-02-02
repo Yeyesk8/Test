@@ -8,20 +8,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
 import org.hibernate.annotations.GenericGenerator;
 
+
 @Entity
+@Table(name = "burguer")
 public class Burguer implements Serializable {
 
-	
-
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6902047601899992555L;
 
 	@Id
@@ -86,6 +83,13 @@ public class Burguer implements Serializable {
 	@NotBlank
 	@Column
 	private double precio;
+	
+	@NotBlank
+	@Column
+	private int cantidad;
+	
+	@ManyToOne
+	private User usuario;
 	
 	
 
@@ -220,18 +224,28 @@ public class Burguer implements Serializable {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
+	
+
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
 
 	@Override
 	public String toString() {
 		return "Burguer [id=" + id + ", name=" + name + ", tipo_carne=" + tipo_carne + ", gluten=" + gluten
 				+ ", tipo_queso=" + tipo_queso + ", lechuga=" + lechuga + ", cebolla=" + cebolla + ", bacon=" + bacon
 				+ ", tipo_huevo=" + tipo_huevo + ", pepinillo=" + pepinillo + ", tomate=" + tomate + ", york=" + york
-				+ ", descripcion=" + descripcion + ", imagen=" + imagen + ", precio=" + precio + "]";
+				+ ", descripcion=" + descripcion + ", imagen=" + imagen + ", precio=" + precio + ", cantidad="
+				+ cantidad + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(bacon, cebolla, descripcion, gluten, id, imagen, lechuga, name, pepinillo, precio,
+		return Objects.hash(bacon, cantidad, cebolla, descripcion, gluten, id, imagen, lechuga, name, pepinillo, precio,
 				tipo_carne, tipo_huevo, tipo_queso, tomate, york);
 	}
 
@@ -244,11 +258,11 @@ public class Burguer implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Burguer other = (Burguer) obj;
-		return Objects.equals(bacon, other.bacon) && Objects.equals(cebolla, other.cebolla)
-				&& Objects.equals(descripcion, other.descripcion) && Objects.equals(gluten, other.gluten)
-				&& Objects.equals(id, other.id) && Objects.equals(imagen, other.imagen)
-				&& Objects.equals(lechuga, other.lechuga) && Objects.equals(name, other.name)
-				&& Objects.equals(pepinillo, other.pepinillo)
+		return Objects.equals(bacon, other.bacon) && cantidad == other.cantidad
+				&& Objects.equals(cebolla, other.cebolla) && Objects.equals(descripcion, other.descripcion)
+				&& Objects.equals(gluten, other.gluten) && Objects.equals(id, other.id)
+				&& Objects.equals(imagen, other.imagen) && Objects.equals(lechuga, other.lechuga)
+				&& Objects.equals(name, other.name) && Objects.equals(pepinillo, other.pepinillo)
 				&& Double.doubleToLongBits(precio) == Double.doubleToLongBits(other.precio)
 				&& Objects.equals(tipo_carne, other.tipo_carne) && Objects.equals(tipo_huevo, other.tipo_huevo)
 				&& Objects.equals(tipo_queso, other.tipo_queso) && Objects.equals(tomate, other.tomate)

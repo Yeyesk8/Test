@@ -8,8 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.webburguer.burguer3j.entity.Sugerencias;
 
 
-
-
 @Repository
 public interface SugerenciasRepository extends CrudRepository<Sugerencias, Long> {
 	

@@ -1,6 +1,7 @@
 package com.webburguer.burguer3j.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -12,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -19,11 +22,9 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
+@Table(name = "user")
 public class User implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1671417246199538663L;
 
 	@Id
@@ -54,6 +55,12 @@ public class User implements Serializable {
 
 	@Transient
 	private String confirmPassword;
+	
+	@OneToMany(mappedBy = "usuario")
+	private List<Burguer> burguer;
+	
+	@OneToMany(mappedBy = "usuario")
+	private List<Orden> ordenes;
 
 	@Size(min=1)
 	@ManyToMany(fetch = FetchType.LAZY)

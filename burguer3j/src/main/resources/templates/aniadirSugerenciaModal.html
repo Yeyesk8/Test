@@ -1,0 +1,70 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Modal Añadir una Sugerencia -->
+
+<div class="col-md-4" id="registrarsugerencia">
+	<div class="modal fade" id="aniadirSugerenciaModal" tabindex="-1" role="dialog"
+		aria-labelledby="aniadirSugerenciaModal" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-md" role="document">
+			<div class="modal-content">
+				<div class="modal-body p-0">
+					<div class="card card-plain">
+						<div class="card-header pb-0 text-center">
+							<h3 class="font-weight-bolder text-danger text-gradient">
+								Contacta con Nosotros</h3>
+							<p class="mb-0">Si Tienes algun Problema o Sugerencia
+								,envíe un correo electrónico a
+								Restaurante3J@gmail.com
+								o contacta mediante nuestro formulario de
+								contacto.
+							</p>
+						</div>
+						<div class="card-body">
+							<form role="form text-left" th:action="@{/nuevaSugerencia}" th:object="${nuevaSugerencia}"
+								method="post">
+
+								<input class="form-control" type=hidden th:field="${nuevaSugerencia.id}">
+
+								<label class="col-lg-4 col-form-label form-control-label">Nombre y
+									Apellido</label>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" placeholder="Nombre y Apellido"
+										required="required" th:field="${nuevaSugerencia.fullname}">
+									<div class="alert-danger" th:if="${#fields.hasErrors('fullname')}"
+										th:errors="${fullname}">Name
+										Error</div>
+								</div>
+								<label class="col-lg-5 col-form-label form-control-label">E-mail</label>
+								<div class="input-group mb-3">
+									<input type="email" class="form-control" placeholder="E-mail" required="required"
+										th:field="${nuevaSugerencia.email}">
+									<div class="alert-danger" th:if="${#fields.hasErrors('email')}"
+										th:errors="${email}">Name
+										Error</div>
+								</div>
+								<div class="input-group mb-3">
+									<textarea type="text" class="form-control" placeholder="mensaje" required="required"
+										th:field="${nuevaSugerencia.mensaje}" rows="3">
+									</textarea>
+									<div class="alert-danger" th:if="${#fields.hasErrors('mensaje')}"
+										th:errors="${mensaje}">Name Error</div>
+								</div>
+						
+						<div class="text-center">
+							<input type="submit" class="btn btn-round bg-gradient-warning btn-lg w-100 mt-4 mb-0"
+								value="Enviar">
+						</div>
+
+						<div class="alert alert-danger text-center" th:if="${formErrorMessage}"
+							th:text="${formErrorMessage}">Error Message</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<!-- Fin Modal Añadir una Sugerencia -->
+
+</html>

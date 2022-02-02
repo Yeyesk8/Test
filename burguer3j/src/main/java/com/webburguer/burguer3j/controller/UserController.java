@@ -19,6 +19,7 @@ import javax.validation.Valid;
 
 import com.webburguer.burguer3j.Exception.UsernameOrIdNotFound;
 import com.webburguer.burguer3j.dto.ChangePasswordForm;
+import com.webburguer.burguer3j.entity.Burguer;
 import com.webburguer.burguer3j.entity.Role;
 import com.webburguer.burguer3j.entity.Sugerencias;
 import com.webburguer.burguer3j.entity.User;
@@ -66,6 +67,7 @@ public class UserController {
 		model.addAttribute("baguetteList", baguetteservice.getAllBaguettes());
 		model.addAttribute("patataList",patataservice.getAllPatatas());
 		model.addAttribute("bebidaList",bebidaservice.getAllBebidas());
+		model.addAttribute("sugerenciaList",sugerenciasService.getAllSugerencias());
 
 		return "index";
 	}
@@ -215,5 +217,58 @@ public class UserController {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 		return ResponseEntity.ok("Success");
+	}
+	
+
+	@GetMapping({"/sugerencias"})
+	public String inicio(Model model, Burguer burguer) {	
+		
+		model.addAttribute("nuevaSugerencia", new Sugerencias());
+		model.addAttribute("sugerenciaList",sugerenciasService.getAllSugerencias());
+	
+		return "admin/sugerencias";
+	}
+	
+
+	@GetMapping({ "/nuevaSugerencia" })
+	public String nuevaSugerencia(Model model) {
+		model.addAttribute("nuevaSugerencia", new Sugerencias());
+		return "aniadirsugerencia";
+	}
+	
+
+	@PostMapping("/nuevaSugerencia")
+	public String crearSugerencias(@Valid @ModelAttribute("nuevaSugerencia") Sugerencias sugerencias, BindingResult result, ModelMap model) {
+
+		if (result.hasErrors()) {
+			model.addAttribute("nuevaSugerencia", sugerencias);
+
+		} else {
+			try {
+				sugerenciasService.createSugerencia(sugerencias);
+				model.addAttribute("nuevaSugerencia", new Sugerencias());
+
+			} catch (Exception e) {
+				model.addAttribute("formErrorMessage", e.getMessage());
+				model.addAttribute("nuevaSugerencia", sugerencias);
+			}
+		}
+		return "redirect:/inicio";
+	}
+	
+	@GetMapping("/borrarSugerencia/{id}")
+	public String borrarSugerencia(Model model, @PathVariable(name = "id") Long id) {
+		try {
+			sugerenciasService.borrarSugerencia(id);
+		} catch (Exception e) {
+			model.addAttribute("listErrorMessage", e.getMessage());
+		}
+		return "redirect:/sugerencias";
+	}
+
+	@GetMapping("/borrarSugerencia/cancelar")
+	public String cancelborrarSugerencia(Model model) {
+
+		return "redirect:/sugerencias";
 	}
 }

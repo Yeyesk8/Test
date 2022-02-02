@@ -1,6 +1,8 @@
 package com.webburguer.burguer3j.service;
 
 
+import java.util.Optional;
+
 import com.webburguer.burguer3j.Exception.UsernameOrIdNotFound;
 import com.webburguer.burguer3j.dto.ChangePasswordForm;
 import com.webburguer.burguer3j.entity.User;
@@ -20,5 +22,7 @@ public interface UserService {
 	public User changePassword(ChangePasswordForm form) throws Exception;
 	
 	public User getLoggedUser() throws Exception;
+	
+	Optional<User> findById(Long id);
 	
 }
