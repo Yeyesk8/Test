@@ -177,9 +177,10 @@
 								</li>
 
 								<li class="nav-item mx-2">
-									<a  class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
-										data-bs-toggle="modal" data-bs-target="#aniadirSugerenciaModal" data-bs-placement="bottom" href="#registrarsugerencia">
-										<div class="icon icon-shape icon-xs border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
+									<a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"										
+										href="sugerencia">
+										<div
+											class="icon icon-shape icon-xs border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
 											<svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
 												xmlns="http://www.w3.org/2000/svg"
 												xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -208,7 +209,7 @@
 										</div>
 										Contacto
 										<img src="">
-									</a >
+									</a>
 
 								</li>
 
@@ -375,8 +376,7 @@
 						<p class="card-description mb-4" th:text="${burguer.descripcion}"> </p>
 					</div>
 					<div class="card-footer">
-						<a th:href="@{/burguerInfo/{id}  (id=${burguer.id})  }" class="btn btn-success">Ver
-							Burguer</a>
+						<a th:href="@{/burguerInfo/{id}  (id=${burguer.id})  }" class="btn btn-success">Ver Burguer</a>
 					</div>
 				</div>
 			</div>
@@ -429,36 +429,8 @@
 		</p>
 		</p>
 		</p>
-		
+
 		<div class="row text-center">
-
-<<<<<<< HEAD
-		<div class="row text-center">
-=======
-			<div class="col-lg-3 col-md-6 mb-4" th:each="baguette: ${baguetteList}">
-				<div class="card h-100">
-					<img class="card-img-top" th:src="@{/images/{img} (img=${baguette.imagen})} " alt="">
-					<div class="card-body">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Baguette</span>
-						<p class="card-title h5 d-block text-darker" th:text="${baguette.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ baguette.precio +'€'}"></p>
-						<p class="card-description mb-4" th:text="${baguette.descripcion}"> </p>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-		<!--<div class="col-md-auto">
-			<div class="card-group">
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/baguettes/bacon-queso.jpg" th:src="@{/img/baguettes/bacon-queso.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
->>>>>>> branch 'master' of git@github.com:Yeyesk8/TFG.git
 
 			<div class="col-lg-3 col-md-6 mb-4" th:each="baguette: ${baguetteList}">
 				<div class="card h-100">
@@ -472,8 +444,7 @@
 					</div>
 				</div>
 			</div>
-		</div>-->
-		
+		</div>
 	</div>
 	</p>
 	</p>
@@ -490,37 +461,8 @@
 		</p>
 		</p>
 		</p>
-		
+
 		<div class="row text-center">
-
-<<<<<<< HEAD
-		<div class="row text-center">
-=======
-			<div class="col-lg-3 col-md-6 mb-4" th:each="patata: ${patataList}">
-				<div class="card h-100">
-					<img class="card-img-top" th:src="@{/images/{img} (img=${patata.imagen})} " alt="">
-					<div class="card-body">
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Patatas</span>
-						<p class="card-title h5 d-block text-darker" th:text="${patata.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ patata.precio +'€'}"></p>
-						<p class="card-description mb-4" th:text="${patata.descripcion}"> </p>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-		<!--<div class="col-md-auto">
-			<div class="card-group">
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/patatas/pequeñas.jpg" th:src="@{/img/patatas/pequeñas.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
->>>>>>> branch 'master' of git@github.com:Yeyesk8/TFG.git
-
 			<div class="col-lg-3 col-md-6 mb-4" th:each="patata: ${patataList}">
 				<div class="card h-100">
 					<img class="card-img-top" th:src="@{/images/{img} (img=${patata.imagen})} " alt="">
@@ -533,7 +475,7 @@
 					</div>
 				</div>
 			</div>
-		</div>-->
+		</div>
 	</div>
 	</p>
 	</p>
@@ -550,56 +492,24 @@
 		</p>
 		</p>
 		</p>
-		
-		<div class="row text-center">
 
+		<div class="row text-center">
 			<div class="col-lg-3 col-md-6 mb-4" th:each="bebida: ${bebidaList}">
 				<div class="card h-100">
 					<img class="card-img-top" th:src="@{/images/{img} (img=${bebida.imagen})} " alt="">
 					<div class="card-body">
 						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Patatas</span>
-						<p class="card-title h5 d-block text-darker" th:text="${bebida.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ bebida.precio +'€'}"></p>
-						<p class="card-description mb-4" th:text="${bebida.descripcion}"> </p>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-		<div class="row text-center">
-
-<<<<<<< HEAD
-			<div class="col-lg-3 col-md-6 mb-4" th:each="bebida: ${bebidaList}">
-				<div class="card h-100">
-					<img class="card-img-top" th:src="@{/images/{img} (img=${bebida.imagen})} " alt="">
-					<div class="card-body">
-=======
-		<!--<div class="col-md-auto">
-			<div class="card-group">
-				<div class="card">
-					<div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-						<a href="javascript:;" class="d-block">
-							<img src="static/img/bebidas/refrescos.jpg" th:src="@{/img/bebidas/refrescos.jpg}"
-								class="img-fluid border-radius-lg">
-						</a>
-					</div>
-
-					<div class="card-body pt-2">
->>>>>>> branch 'master' of git@github.com:Yeyesk8/TFG.git
-						<span
-							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Patatas</span>
+							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Bebidas</span>
 						<p class="card-title h5 d-block text-darker"
 							th:text="${bebida.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ bebida.precio +'€'}"></p>
 						<p class="card-description mb-4" th:text="${bebida.descripcion}"> </p>
 					</div>
 				</div>
-			</div>-->
-			
+			</div>
 		</div>
 	</div>
 
-<!--
+	<!--
 		<footer id="sugerencia">
 			<div class="page-header min-vh-85">
 				<div>

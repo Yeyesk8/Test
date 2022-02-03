@@ -53,8 +53,8 @@ public class CarritoController {
 
 	// datos de la orden
 	Orden orden = new Orden();
-
 	
+
 	@GetMapping("burguerInfo/{id}")
 	public String burguerInfo(@PathVariable Long id, Model model) {
 		log.info("Id Burguer enviada como parámetro {}", id);

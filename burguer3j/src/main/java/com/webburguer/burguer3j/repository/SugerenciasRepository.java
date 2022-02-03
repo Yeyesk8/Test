@@ -11,6 +11,6 @@ import com.webburguer.burguer3j.entity.Sugerencias;
 @Repository
 public interface SugerenciasRepository extends CrudRepository<Sugerencias, Long> {
 	
-	public Optional<Sugerencias> findById(Long id);
+	public Optional<Sugerencias> findByAsunto(String asunto);
 
  }

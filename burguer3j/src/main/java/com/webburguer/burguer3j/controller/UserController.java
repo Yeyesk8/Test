@@ -1,5 +1,7 @@
 package com.webburguer.burguer3j.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import com.webburguer.burguer3j.Exception.UsernameOrIdNotFound;
@@ -34,6 +37,8 @@ import com.webburguer.burguer3j.service.UserService;
 
 @Controller
 public class UserController {
+	
+	private final Logger log = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
 	UserService userService;
@@ -60,7 +65,9 @@ public class UserController {
 	RoleRepository roleRepository;
 
 	@GetMapping({ "/", "/inicio" })
-	public String index(Model model) {
+	public String index(Model model/*, HttpSession session*/) {
+		
+		/*log.info("Sesion del usuario: {}", session.getAttribute("idusuario"));*/
 		
 		model.addAttribute("burguerList", burguerservice.getAllBurguers());
 		model.addAttribute("sandwichList", sandwichservice.getAllSandwiches());
@@ -68,6 +75,9 @@ public class UserController {
 		model.addAttribute("patataList",patataservice.getAllPatatas());
 		model.addAttribute("bebidaList",bebidaservice.getAllBebidas());
 		model.addAttribute("sugerenciaList",sugerenciasService.getAllSugerencias());
+		
+		//session
+				/*model.addAttribute("sesion", session.getAttribute("idusuario"));*/
 
 		return "index";
 	}
@@ -132,6 +142,66 @@ public class UserController {
 		model.addAttribute("roles", roleRepository.findAll());
 
 		return "redirect:/inicio";
+	}
+	
+	@GetMapping({"/sugerencias"})
+	public String inicio(Model model, Burguer burguer) {	
+		
+		model.addAttribute("nuevaSugerencia", new Sugerencias());
+		model.addAttribute("sugerenciaList",sugerenciasService.getAllSugerencias());
+	
+		return "admin/sugerencias";
+	}
+	
+
+	@GetMapping( "/sugerencia" )
+	public String sugerencia(Model model) {
+		
+		model.addAttribute("sugerencia", new Sugerencias());
+		
+		return "sugerencia";
+	}
+	
+	@GetMapping("/sugerencia/cancelar")
+	public String cancelarSugerencia(Model model) {
+		
+		return "redirect:/inicio";
+	}
+	
+
+	@PostMapping("/sugerencia")
+	public String crearSugerencia(@Valid @ModelAttribute("sugerencia") Sugerencias sugerencias, BindingResult result, ModelMap model) {
+		
+		if (result.hasErrors()) {
+			model.addAttribute("sugerencia", sugerencias);
+
+		} else {
+			try {
+				sugerenciasService.createSugerencia(sugerencias);
+				model.addAttribute("sugerencia", new Sugerencias());
+
+			} catch (Exception e) {
+				model.addAttribute("formErrorMessage", e.getMessage());
+				model.addAttribute("sugerencia", sugerencias);
+			}
+		}
+		return "redirect:/inicio";
+	}
+	
+	@GetMapping("/borrarSugerencia/{id}")
+	public String borrarSugerencia(Model model, @PathVariable(name = "id") Long id) {
+		try {
+			sugerenciasService.borrarSugerencia(id);
+		} catch (Exception e) {
+			model.addAttribute("listErrorMessage", e.getMessage());
+		}
+		return "redirect:/sugerencias";
+	}
+
+	@GetMapping("/borrarSugerencia/cancelar")
+	public String cancelborrarSugerencia(Model model) {
+
+		return "redirect:/sugerencias";
 	}
 
 	@GetMapping({ "/perfil" })
@@ -219,56 +289,4 @@ public class UserController {
 		return ResponseEntity.ok("Success");
 	}
 	
-
-	@GetMapping({"/sugerencias"})
-	public String inicio(Model model, Burguer burguer) {	
-		
-		model.addAttribute("nuevaSugerencia", new Sugerencias());
-		model.addAttribute("sugerenciaList",sugerenciasService.getAllSugerencias());
-	
-		return "admin/sugerencias";
-	}
-	
-
-	@GetMapping({ "/nuevaSugerencia" })
-	public String nuevaSugerencia(Model model) {
-		model.addAttribute("nuevaSugerencia", new Sugerencias());
-		return "aniadirsugerencia";
-	}
-	
-
-	@PostMapping("/nuevaSugerencia")
-	public String crearSugerencias(@Valid @ModelAttribute("nuevaSugerencia") Sugerencias sugerencias, BindingResult result, ModelMap model) {
-
-		if (result.hasErrors()) {
-			model.addAttribute("nuevaSugerencia", sugerencias);
-
-		} else {
-			try {
-				sugerenciasService.createSugerencia(sugerencias);
-				model.addAttribute("nuevaSugerencia", new Sugerencias());
-
-			} catch (Exception e) {
-				model.addAttribute("formErrorMessage", e.getMessage());
-				model.addAttribute("nuevaSugerencia", sugerencias);
-			}
-		}
-		return "redirect:/inicio";
-	}
-	
-	@GetMapping("/borrarSugerencia/{id}")
-	public String borrarSugerencia(Model model, @PathVariable(name = "id") Long id) {
-		try {
-			sugerenciasService.borrarSugerencia(id);
-		} catch (Exception e) {
-			model.addAttribute("listErrorMessage", e.getMessage());
-		}
-		return "redirect:/sugerencias";
-	}
-
-	@GetMapping("/borrarSugerencia/cancelar")
-	public String cancelborrarSugerencia(Model model) {
-
-		return "redirect:/sugerencias";
-	}
 }

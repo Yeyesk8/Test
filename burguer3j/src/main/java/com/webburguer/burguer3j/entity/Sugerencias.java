@@ -16,11 +16,6 @@ import org.hibernate.annotations.GenericGenerator;
 public class Sugerencias implements Serializable {
 
 	
-	
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 7528261423593774386L;
 
 	@Id
@@ -30,12 +25,19 @@ public class Sugerencias implements Serializable {
 
 	@Column
 	@NotBlank
-	private String fullname;
+	private String nombre;
+	
+	@Column
+	@NotBlank
+	private String apellido;
 	
 	@Column
 	@NotBlank
 	private String email;
-
+	
+	@Column
+	@NotBlank
+	private String asunto;
 
 	@Column
 	@NotBlank
@@ -61,12 +63,20 @@ public class Sugerencias implements Serializable {
 		this.id = id;
 	}
 
-	public String getFullname() {
-		return fullname;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 
 	public String getEmail() {
@@ -84,15 +94,25 @@ public class Sugerencias implements Serializable {
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
 	}
+	
+
+	public String getAsunto() {
+		return asunto;
+	}
+
+	public void setAsunto(String asunto) {
+		this.asunto = asunto;
+	}
 
 	@Override
 	public String toString() {
-		return "Sugerencias [id=" + id + ", fullname=" + fullname + ", email=" + email + ", mensaje=" + mensaje + "]";
+		return "Sugerencias [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email
+				+ ", asunto=" + asunto + ", mensaje=" + mensaje + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(email, fullname, id, mensaje);
+		return Objects.hash(apellido, asunto, email, id, mensaje, nombre);
 	}
 
 	@Override
@@ -104,14 +124,10 @@ public class Sugerencias implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Sugerencias other = (Sugerencias) obj;
-		return Objects.equals(email, other.email) && Objects.equals(fullname, other.fullname)
-				&& Objects.equals(id, other.id) && Objects.equals(mensaje, other.mensaje);
+		return Objects.equals(apellido, other.apellido) && Objects.equals(asunto, other.asunto)
+				&& Objects.equals(email, other.email) && Objects.equals(id, other.id)
+				&& Objects.equals(mensaje, other.mensaje) && Objects.equals(nombre, other.nombre);
 	}
 
-
-
-
-	
-	
 	
 }

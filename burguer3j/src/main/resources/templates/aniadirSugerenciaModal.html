@@ -20,31 +20,49 @@
 							</p>
 						</div>
 						<div class="card-body">
-							<form role="form text-left" th:action="@{/nuevaSugerencia}" th:object="${nuevaSugerencia}"
+							<form role="form text-left" th:action="@{/sugerencia}" th:object="${sugerencia}"
 								method="post">
-
-								<input class="form-control" type=hidden th:field="${nuevaSugerencia.id}">
-
-								<label class="col-lg-4 col-form-label form-control-label">Nombre y
-									Apellido</label>
+								
+								<label class="col-lg-4 col-form-label form-control-label">Nombre</label>
 								<div class="input-group mb-3">
-									<input type="text" class="form-control" placeholder="Nombre y Apellido"
-										required="required" th:field="${nuevaSugerencia.fullname}">
-									<div class="alert-danger" th:if="${#fields.hasErrors('fullname')}"
-										th:errors="${fullname}">Name
+									<input type="text" class="form-control" placeholder="Nombre"
+										required="required" th:field="${sugerencia.nombre}">
+									<div class="alert-danger" th:if="${#fields.hasErrors('nombre')}"
+										th:errors="${nombre}">Name
 										Error</div>
 								</div>
+								
+								<label class="col-lg-4 col-form-label form-control-label">Apellido</label>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" placeholder="Apellido"
+										required="required" th:field="${sugerencia.apellido}">
+									<div class="alert-danger" th:if="${#fields.hasErrors('apellido')}"
+										th:errors="${apellido}">Name
+										Error</div>
+								</div>
+								
+								<label class="col-lg-4 col-form-label form-control-label">Asunto</label>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" placeholder="Asunto"
+										required="required" th:field="${sugerencia.asunto}">
+									<div class="alert-danger" th:if="${#fields.hasErrors('asunto')}"
+										th:errors="${asunto}">Name
+										Error</div>
+								</div>
+								
 								<label class="col-lg-5 col-form-label form-control-label">E-mail</label>
 								<div class="input-group mb-3">
 									<input type="email" class="form-control" placeholder="E-mail" required="required"
-										th:field="${nuevaSugerencia.email}">
+										th:field="${sugerencia.email}">
 									<div class="alert-danger" th:if="${#fields.hasErrors('email')}"
 										th:errors="${email}">Name
 										Error</div>
 								</div>
+								
+								<label class="col-lg-5 col-form-label form-control-label">Mensaje</label>
 								<div class="input-group mb-3">
 									<textarea type="text" class="form-control" placeholder="mensaje" required="required"
-										th:field="${nuevaSugerencia.mensaje}" rows="3">
+										th:field="${sugerencia.mensaje}" rows="3">
 									</textarea>
 									<div class="alert-danger" th:if="${#fields.hasErrors('mensaje')}"
 										th:errors="${mensaje}">Name Error</div>

@@ -22,8 +22,8 @@ public class SugerenciasServiceImpl implements SugerenciasService {
 		return surepository.findAll();
 	}
 
-	private boolean checkIdAvailable(Sugerencias sugerencias) throws Exception {
-		Optional<Sugerencias> sugerFound = surepository.findById(sugerencias.getId());
+	private boolean checkAsuntoAvailable(Sugerencias sugerencias) throws Exception {
+		Optional<Sugerencias> sugerFound = surepository.findByAsunto(sugerencias.getAsunto());
 		if (sugerFound.isPresent()) {
 			throw new Exception("Sugerencia no disponible");
 		}
@@ -33,7 +33,7 @@ public class SugerenciasServiceImpl implements SugerenciasService {
 
 	@Override
 	public Sugerencias createSugerencia(Sugerencias sugerencias) throws Exception {
-		if (checkIdAvailable(sugerencias)) {
+		if (checkAsuntoAvailable(sugerencias)) {
 			sugerencias = surepository.save(sugerencias);
 		}
 		return sugerencias;
@@ -45,8 +45,10 @@ public class SugerenciasServiceImpl implements SugerenciasService {
 	}
 	
 	protected void mapSugerencia(Sugerencias from, Sugerencias to) {
-		to.setFullname(from.getFullname());
+		to.setNombre(from.getNombre());
+		to.setApellido(from.getApellido());
 		to.setEmail(from.getEmail());
+		to.setAsunto(from.getAsunto());
 		to.setMensaje(from.getMensaje());
 	}
 

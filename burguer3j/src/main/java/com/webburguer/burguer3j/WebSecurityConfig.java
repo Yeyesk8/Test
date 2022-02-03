@@ -31,6 +31,7 @@ public class WebSecurityConfig  extends  WebSecurityConfigurerAdapter{
         .antMatchers(resources).permitAll()  
         .antMatchers("/","/inicio").permitAll()
         .antMatchers("/registro").permitAll()
+        .antMatchers("/sugerencia").permitAll()
         .antMatchers("/inicioa").access("hasRole('ADMIN')")
         .antMatchers("/inicioc").access("hasRole('USER')")
         .antMatchers("/editarUsuario/{id}").access("hasRole('ADMIN')")
