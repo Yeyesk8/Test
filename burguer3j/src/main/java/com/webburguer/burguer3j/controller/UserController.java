@@ -65,9 +65,9 @@ public class UserController {
 	RoleRepository roleRepository;
 
 	@GetMapping({ "/", "/inicio" })
-	public String index(Model model/*, HttpSession session*/) {
+	public String index(Model model, HttpSession session) {
 		
-		/*log.info("Sesion del usuario: {}", session.getAttribute("idusuario"));*/
+		log.info("Sesion del usuario: {}", session.getAttribute("idusuario"));
 		
 		model.addAttribute("burguerList", burguerservice.getAllBurguers());
 		model.addAttribute("sandwichList", sandwichservice.getAllSandwiches());
@@ -76,8 +76,8 @@ public class UserController {
 		model.addAttribute("bebidaList",bebidaservice.getAllBebidas());
 		model.addAttribute("sugerenciaList",sugerenciasService.getAllSugerencias());
 		
-		//session
-				/*model.addAttribute("sesion", session.getAttribute("idusuario"));*/
+		//sesion
+				model.addAttribute("sesion", session.getAttribute("idusuario"));
 
 		return "index";
 	}

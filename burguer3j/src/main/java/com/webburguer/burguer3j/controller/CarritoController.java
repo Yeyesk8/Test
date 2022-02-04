@@ -55,7 +55,7 @@ public class CarritoController {
 	Orden orden = new Orden();
 	
 
-	@GetMapping("burguerInfo/{id}")
+	@GetMapping("/burguerInfo/{id}")
 	public String burguerInfo(@PathVariable Long id, Model model) {
 		log.info("Id Burguer enviada como parámetro {}", id);
 		Burguer burguer = new Burguer();
@@ -95,15 +95,15 @@ public class CarritoController {
 		sumaTotal = detalles.stream().mapToDouble(dt -> dt.getTotal()).sum();
 
 		orden.setTotal(sumaTotal);
-		model.addAttribute("cart", detalles);
+		model.addAttribute("carrito", detalles);
 		model.addAttribute("orden", orden);
 
-		return "usuario/carrito";
+		return "cliente/carrito";
 	}
 
 	// quitar un producto del carrito
 	@GetMapping("/eliminar/carrito/{id}")
-	public String deleteProductoCart(@PathVariable Long id, Model model) {
+	public String eliminarProductoCarrito(@PathVariable Long id, Model model) {
 
 		// lista nueva de prodcutos
 		List<DetalleOrden> ordenesNueva = new ArrayList<DetalleOrden>();
@@ -121,24 +121,24 @@ public class CarritoController {
 		sumaTotal = detalles.stream().mapToDouble(dt -> dt.getTotal()).sum();
 
 		orden.setTotal(sumaTotal);
-		model.addAttribute("cart", detalles);
+		model.addAttribute("carrito", detalles);
 		model.addAttribute("orden", orden);
 
 		return "cliente/carrito";
 	}
 	
-	@GetMapping("/getCart")
-	public String getCart(Model model, HttpSession session) {
+	@GetMapping("/getCarrito")
+	public String getCarrito(Model model, HttpSession session) {
 		
 		model.addAttribute("cart", detalles);
 		model.addAttribute("orden", orden);
 		
 		//sesion
 		model.addAttribute("sesion", session.getAttribute("idusuario"));
-		return "/cliente/carrito";
+		return "cliente/carrito";
 	}
 	
-	@GetMapping("/order")
+	@GetMapping("/orden")
 	public String order(Model model, HttpSession session) {
 		
 		User usuario =usuarioService.findById( Long.parseLong(session.getAttribute("idusuario").toString())).get();

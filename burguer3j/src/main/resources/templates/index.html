@@ -32,7 +32,7 @@
 		<div class="row">
 			<div class="col-12">
 				<nav
-					class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-2">
+					class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-0">
 					<div class="container-fluid">
 						<img src="static/img/Logo.jpg" th:src="@{/img/Logo.jpg}" class="avatar avatar-sm me-1">
 						<a class="navbar-brand font-weight-bolder ms-sm-3">
@@ -60,7 +60,7 @@
 								</li>
 
 								<li class="nav-item dropdown dropdown-hover mx-2">
-									<a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
+									<a class="nav-link ps-0 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
 										id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
 										<div
 											class="icon icon-shape icon-xs border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
@@ -177,7 +177,7 @@
 								</li>
 
 								<li class="nav-item mx-2">
-									<a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"										
+									<a class="nav-link ps-0 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
 										href="sugerencia">
 										<div
 											class="icon icon-shape icon-xs border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
@@ -214,7 +214,7 @@
 								</li>
 
 								<li class="nav-item mx-2">
-									<a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
+									<a class="nav-link ps-0 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
 										data-bs-toggle="modal" data-bs-target="#alergias" data-bs-placement="bottom"
 										href="#alergenos">
 										<div
@@ -234,21 +234,63 @@
 
 								</li>
 
-								<li class="nav-item ms-lg-auto">
-									<a class="nav-link me-1" href="#sesion">
-										<i class="fa fa-power-off"></i>
-										<p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="modal"
-											data-bs-target="#modal-form" data-bs-placement="bottom"
-											title="Iniciar Sesion">Iniciar Sesion</p>
 
+								<li class="nav-item mx-2">
+									<a class="nav-link ps-0 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
+										th:href="@{/getCarrito}">
+										<div
+											class="icon icon-shape icon-xs border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
+											<svg aria-hidden="true" focusable="false" data-prefix="fas"
+												data-icon="cart-shopping" class="svg-inline--fa fa-cart-shopping"
+												role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+												<path fill="currentColor"
+													d="M96 0C107.5 0 117.4 8.19 119.6 19.51L121.1 32H541.8C562.1 32 578.3 52.25 572.6 72.66L518.6 264.7C514.7 278.5 502.1 288 487.8 288H170.7L179.9 336H488C501.3 336 512 346.7 512 360C512 373.3 501.3 384 488 384H159.1C148.5 384 138.6 375.8 136.4 364.5L76.14 48H24C10.75 48 0 37.25 0 24C0 10.75 10.75 0 24 0H96zM128 464C128 437.5 149.5 416 176 416C202.5 416 224 437.5 224 464C224 490.5 202.5 512 176 512C149.5 512 128 490.5 128 464zM512 464C512 490.5 490.5 512 464 512C437.5 512 416 490.5 416 464C416 437.5 437.5 416 464 416C490.5 416 512 437.5 512 464z">
+												</path>
+											</svg>
+										</div>
+										Carrito
+										<img src="">
 									</a>
+									</p>
+
 								</li>
 
-								<li class="nav-item my-auto ms-3 ms-lg-0">
-									<a class="nav-link me-2" href="registro">
-										<p class="btn btn-sm  bg-gradient-warning  btn-round mb-0 me-1 mt-2 mt-md-0">
-											Registrarse</p>
+								<li class="nav-item mx-2">
+									<a class="nav-link ps-0 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
+										href="#sesion">
+										<div
+											class="icon icon-shape icon-xs border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
+											<svg aria-hidden="true" focusable="false" data-prefix="fas"
+												data-icon="power-off" class="svg-inline--fa fa-power-off" role="img"
+												xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+												<path fill="currentColor"
+													d="M256 288c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32S224 14.33 224 32v224C224 273.7 238.3 288 256 288zM403.7 66.81c-13.92-10.84-34.03-8.406-44.92 5.5c-10.89 13.94-8.438 34.03 5.484 44.94C407.3 150.9 432 201.5 432 256c0 97.03-78.95 176-176 176S80 353 80 256c0-54.53 24.69-105.1 67.72-138.8c13.92-10.91 16.38-31 5.484-44.94c-10.91-13.91-31-16.34-44.92-5.5C49.64 112.7 16 181.7 16 256c0 132.3 107.7 240 240 240s240-107.7 240-240C496 181.7 462.4 112.7 403.7 66.81z">
+												</path>
+											</svg>
+										</div>
+										Login
+										<img src="">
 									</a>
+									</p>
+								</li>
+
+								<li class="nav-item mx-2">
+									<a class="nav-link ps-0 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
+										href="registro">
+										<div
+											class="icon icon-shape icon-xs border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
+											<svg aria-hidden="true" focusable="false" data-prefix="fas"
+												data-icon="user-plus" class="svg-inline--fa fa-user-plus" role="img"
+												xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+												<path fill="currentColor"
+													d="M224 256c70.7 0 128-57.31 128-128S294.7 0 224 0C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3C0 496.5 15.52 512 34.66 512h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304zM616 200h-48v-48C568 138.8 557.3 128 544 128s-24 10.75-24 24v48h-48C458.8 200 448 210.8 448 224s10.75 24 24 24h48v48C520 309.3 530.8 320 544 320s24-10.75 24-24v-48h48C629.3 248 640 237.3 640 224S629.3 200 616 200z">
+												</path>
+											</svg>
+										</div>
+										Registro
+										<img src="">
+									</a>
+									</p>
 								</li>
 
 							</ul>
@@ -372,7 +414,7 @@
 						<span
 							class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Hamburguesa</span>
 						<p class="card-title h5 d-block text-darker"
-							th:text="${burguer.name +'&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'+ burguer.precio +'€'}"></p>
+							th:text="${burguer.name +'&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;'+ burguer.precio +'€'}"></p>
 						<p class="card-description mb-4" th:text="${burguer.descripcion}"> </p>
 					</div>
 					<div class="card-footer">

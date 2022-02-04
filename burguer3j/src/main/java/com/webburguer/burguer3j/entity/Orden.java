@@ -26,7 +26,7 @@ public class Orden implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
 	@GenericGenerator(name = "native", strategy = "native")
-	private Long id;
+	private Integer id;
 	
 	@Column
 	@NotBlank
@@ -50,11 +50,13 @@ public class Orden implements Serializable {
 	@OneToMany(mappedBy = "orden")
 	private List<DetalleOrden> detalle;
 
-	public Long getId() {
+	
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -109,12 +111,12 @@ public class Orden implements Serializable {
 	@Override
 	public String toString() {
 		return "Orden [id=" + id + ", numero=" + numero + ", fechaCreacion=" + fechaCreacion + ", fechaRecibida="
-				+ fechaRecibida + ", total=" + total + "]";
+				+ fechaRecibida + ", total=" + total + ", usuario=" + usuario + ", detalle=" + detalle + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(fechaCreacion, fechaRecibida, id, numero, total);
+		return Objects.hash(detalle, fechaCreacion, fechaRecibida, id, numero, total, usuario);
 	}
 
 	@Override
@@ -126,9 +128,11 @@ public class Orden implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Orden other = (Orden) obj;
-		return Objects.equals(fechaCreacion, other.fechaCreacion) && Objects.equals(fechaRecibida, other.fechaRecibida)
-				&& Objects.equals(id, other.id) && Objects.equals(numero, other.numero)
-				&& Double.doubleToLongBits(total) == Double.doubleToLongBits(other.total);
+		return Objects.equals(detalle, other.detalle) && Objects.equals(fechaCreacion, other.fechaCreacion)
+				&& Objects.equals(fechaRecibida, other.fechaRecibida) && Objects.equals(id, other.id)
+				&& Objects.equals(numero, other.numero)
+				&& Double.doubleToLongBits(total) == Double.doubleToLongBits(other.total)
+				&& Objects.equals(usuario, other.usuario);
 	}
 	
 	

@@ -1,4 +1,3 @@
-
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 
@@ -10,7 +9,7 @@
 
 
 	<title>
-		Info Burguer
+		Resumen Pedido
 	</title>
 	<!--     Fonts and icons     -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -154,14 +153,14 @@
 											<h6
 												class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center px-0 mt-3">
 												<div class="d-inline-block">
-												<a th:href="@{/baguettes}"> Baguettes </a>
+													<a th:href="@{/baguettes}"> Baguettes </a>
 												</div>
 											</h6>
 
 											<h6
 												class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center px-0 mt-3">
 												<div class="d-inline-block">
-														<a th:href="@{/patatas}">Patatas</a>
+													<a th:href="@{/patatas}">Patatas</a>
 												</div>
 											</h6>
 											<h6
@@ -180,9 +179,10 @@
 								</li>
 
 								<li class="nav-item mx-2">
-									<a  class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
+									<a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
 										th:href="@{/sugerencia}">
-										<div class="icon icon-shape icon-xs border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
+										<div
+											class="icon icon-shape icon-xs border-radius-md bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
 											<svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
 												xmlns="http://www.w3.org/2000/svg"
 												xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -211,7 +211,7 @@
 										</div>
 										Contacto
 										<img src="">
-									</a >
+									</a>
 
 								</li>
 
@@ -261,7 +261,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<header class="header-2" id="inicio">
 		<div class="page-header min-vh-75" style="background-image: url('/img/Fondo.jpg')">
 			<div class="container">
@@ -303,64 +303,80 @@
 			</div>
 		</div>
 	</header>
-	
+
 	<div class="container">
-	
-	<ol class="breadcrumb">
-			<li class="breadcrumb-item font-weight-bold"><a th:href="@{/}">INICIO</a ></li>
-			<li class="breadcrumb-item font-weight-bold active">BURGUER</li>
+
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item font-weight-bold"><a th:href="@{/}">INICIO</a></li>
+			<li class="breadcrumb-item font-weight-bold active">ORDEN</li>
 		</ol>
-	
+
 		<div class="card mb-4">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-lg-6">
-						<a href="#"> <img class="img-fluid rounded"
-							th:src="@{/images/{img} (img=${burguer.imagen})  }" alt="">
-						</a>
-					</div>
-					<div class="col-lg-6">
-						<form th:action="@{/carrito}" method="post">
-						
-						<input type="hidden" th:value="${burguer.id}" name="id">
-							<h2 class="card-title" th:text="${burguer.name}"></h2>
+        <div class="card-body">
+          <div class="row">
+           <div class="col-lg-9">
+             <div class="card-body">
+              <h5 class="card-title">
+                DATOS ORDEN
+              </h5>
+              <h6 th:text=" 'Nombre: '+ ${user.firstName}"> </h6>
+              <h6 th:text=" 'Apellido: '+ ${user.lastName}"> </h6>
+              <h6 th:text="'Correo: '+  ${user.email}"></h6>
 
-							<ul class="list-group">
-								<li class="list-group-item">
-								<h5 th:text=" 'Precio:'"></h5><span class="font-weight-bold" th:text=" ${burguer.precio} +'€' "></span >
-								</li>
-								<li class="list-group-item">
-									<h5 th:text="'Descripción:'"></h5><span class="font-weight-bold" th:text=" ${burguer.descripcion} "></span >
-								</li>
-								<li class="list-group-item"><h6>
-										Cantidad: <input type="number" id="cantidad" name="cantidad"
-											autocomplete="off" min="1" max="50" value="1">
-									</h6></li>
-							</ul>
-							</p>
+              <h5 class="card-title">
+                PRODUCTOS
+              </h5>
+              <div class="alert alert-light" role="alert">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Producto</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="dtorden:${carrito}">
+                     <td th:text="${dtorden.nombre}"></td>
+                     <td th:text="${dtorden.precio}"></td>
+                     <td th:text="${dtorden.cantidad}"></td>
+                     <td th:text="${dtorden.total}"></td>
+
+                   </tr>
+                 </tbody>
+               </table>
+             </div>
+
+           </div>
+         </div>
 
 
-							<button type="submit" class="btn btn-sm  bg-gradient-warning  btn-round mb-0 me-1 mt-2 mt-md-0">Añadir al
-								carrito</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		
+         <div class="col-lg-3">
+          <h2 class="card-title">Resumen Orden</h2>
+
+          <ul class="list-group">
+            <li class="list-group-item"><h5 th:text=" 'Total: '+ ${orden.total} "> </h5></li>
+            <a th:href="@{guardarOrden}" class="btn btn-sm  bg-gradient-warning  btn-round mb-0 me-1 mt-2 mt-md-0">Pedir</a>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
 	</div>
 
 
-	
 
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
 	<!-- JS Plugins Diseño -->
 
 	<script src="static/js/soft-ui/core/popper.min.js" th:src="@{/js/soft-ui/core/popper.min.js}"
